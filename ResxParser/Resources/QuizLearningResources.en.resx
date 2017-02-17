@@ -134,6 +134,7 @@ Do you want to proceed?</value>
 	<data name="cant_download_quiz" xml:space="preserve">
     <value>Could not complete the quiz download.</value>
   </data>
+	<!--    test comment-->
 	<data name="cant_save_quiz" xml:space="preserve">
     <value>Could not save the quiz content.</value>
   </data>

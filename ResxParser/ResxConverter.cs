@@ -31,9 +31,12 @@ namespace ResxParser
                         // Writes the file we are converting into a comment.
                         output.WriteComment(resxCulture.FileName);
 
-                        foreach (var element in XDocument.Load(resxCulture.FilePath).Descendants())
+                        foreach (var node in XDocument.Load(resxCulture.FilePath).DescendantNodes())
                         {
-                            if (element.NodeType == XmlNodeType.Element && element.Name == "data")
+                            var element = node as XElement;
+                            var comment = node as XComment;
+
+                            if (element != null && element.Name == "data")
                             {
                                 output.WriteString((new StringElement
                                 {
@@ -41,19 +44,15 @@ namespace ResxParser
                                     Value = element.Value.Trim()
                                 }));
                             }
-                            //FIXME:
-                            // element.NodeType == XmlNodeType.Comment don't work.
-                            else if (element.NodeType == XmlNodeType.Comment)
+                            else if (comment != null)
                             {
-                                output.WriteComment(element.Value);
+                                output.WriteComment(comment.Value);
                             }
                         }
                     }
                 }
             }
         }
-
-
     }
 
     internal class ResxCulture
