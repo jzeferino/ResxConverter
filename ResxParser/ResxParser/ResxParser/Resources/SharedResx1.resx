@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="FeedbackTitleDone" xml:space="preserve">
+    <value>Feito!</value>
+  </data>
+	<data name="FeedbackTitleAlreadyDone" xml:space="preserve">
+    <value>Já está!</value>
+  </data>
+	<data name="FeedbackTitleItsSimple" xml:space="preserve">
+    <value>Simples!</value>
+  </data>
+	<data name="FeedbackButtonOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+	<data name="FeedbackSubscribeInsuranceDescription" xml:space="preserve">
+    <value>O seu pedido foi submetido com sucesso.</value>
+  </data>
+	<data name="FeedbackActivateJumboVisaCardDescription" xml:space="preserve">
+    <value>O seu cartão Jumbo Visa foi ativado com sucesso e está pronto para ser usado.</value>
+  </data>
+	<data name="FeedbackSubscribeDigitalExtractDescription" xml:space="preserve">
+    <value>A partir de agora poderá consultar o extrato em formato digital na sua Área Cliente. O Ambiente agradece!</value>
+  </data>
+	<data name="FeedbackExtractDuplicateDescription" xml:space="preserve">
+    <value>Enviámos-lhe um email com o seu pedido.</value>
+  </data>
+	<data name="FeedbackChangePaymentMethodDescription" xml:space="preserve">
+    <value>As compras selecionadas serão pagas na modalidade de Conta Permanente.</value>
+  </data>
+	<data name="FeedbackReplaceCardDescription" xml:space="preserve">
+    <value>Para saber mais sobre o envio do seu novo {0} por favor, consulte o seu email.</value>
+  </data>
+	<data name="FeedbackMovementsSendByEmailDescription" xml:space="preserve">
+    <value>Enviámos-lhe um email com o seu pedido.</value>
+  </data>
+	<!--    Raise credit limit -->
+	<data name="ConfirmationRaiseCreditLimitTitle" xml:space="preserve">
+    <value>Tem a certeza de que pretende submeter o pedido de Aumento de Limite de Crédito?</value>
+  </data>
+	<data name="ConfirmationRaiseCreditLimitOk" xml:space="preserve">
+    <value>Sim, tenho</value>
+  </data>
+	<data name="ConfirmationRaiseCreditLimitBack" xml:space="preserve">
+    <value>Voltar</value>
+  </data>
+	<data name="FeedbackRaiseCreditLimitTitle" xml:space="preserve">
+    <value>Simples!</value>
+  </data>
+	<data name="FeedbackRaiseCreditLimitDescription" xml:space="preserve">
+    <value>O seu pedido já foi encaminhado para a nossa equipa. Em breve, entraremos em contacto.</value>
+  </data>
+	<!--    RF one lap -->
+	<data name="ConfirmationOneLapRFTitle" xml:space="preserve">
+    <value>Tem a certeza de que pretende submeter o pedido de financiamento no valor de:</value>
+  </data>
+	<data name="ConfirmationOneLapRFOk" xml:space="preserve">
+    <value>Sim, tenho</value>
+  </data>
+	<data name="ConfirmationOneLapRFBack" xml:space="preserve">
+    <value>Voltar</value>
+  </data>
+	<data name="FeedbackOneLapRFSuccessTitle" xml:space="preserve">
+    <value>Feito!</value>
+  </data>
+	<data name="FeedbackOneLapRFSuccessDescription" xml:space="preserve">
+    <value>O seu pedido de financiamento foi aprovado. O valor solicitado será transferido para a sua conta à ordem, no prazo de 48 horas úteis.</value>
+  </data>
+	<!--    RF two lap -->
+	<data name="ConfirmationTwoLapRFTitle" xml:space="preserve">
+    <value>Tem a certeza de que pretende submeter o pedido de financiamento no valor de:</value>
+  </data>
+	<data name="ConfirmationTwoLapRFCheckTitle" xml:space="preserve">
+    <value>Tenho conhecimento de que este pedido de financiamento implica um Aumento do Limite de Crédito para {0} do meu {1}. Confirmo que pretendo este aumento de carácter definitivo, salvo minha posterior indicação em contrário.
+</value>
+  </data>
+	<data name="ConfirmationTwoLapRFOk" xml:space="preserve">
+    <value>Sim, tenho</value>
+  </data>
+	<data name="ConfirmationTwoLapRFBack" xml:space="preserve">
+    <value>Voltar</value>
+  </data>
+	<data name="FeedbackTwoLapRFSuccessTitle" xml:space="preserve">
+    <value>Feito!</value>
+  </data>
+	<data name="FeedbackOTwoLapRFSuccessDescription" xml:space="preserve">
+    <value>O seu pedido de financiamento de {0}, associado ao {1} já foi encaminhado para a nossa equipa. Em breve entraremos em contacto.</value>
+  </data>
+	<!--    RF Error -->
+	<data name="FeedbackRFErrorDescription" xml:space="preserve">
+    <value>Lamentamos informar mas não é possível disponibilizar o valor solicitado. Para mais esclarecimentos, contacte-nos através de um dos nossos canais.</value>
+  </data>
+	<!--    RF Atribuition popups -->
+	<data name="ConfirmationRFAtribuitionTitle" xml:space="preserve">
+    <value>Tem a certeza de que pretende submeter o pedido de atribuição de Reserva Financeira de:</value>
+  </data>
+	<data name="ConfirmationRFAtribuitionOk" xml:space="preserve">
+    <value>Sim, tenho</value>
+  </data>
+	<data name="ConfirmationRFAtribuitionBack" xml:space="preserve">
+    <value>Voltar</value>
+  </data>
+	<data name="FeedbackRFSuccessAtribuitionTitle" xml:space="preserve">
+    <value>Recebido!</value>
+  </data>
+	<data name="FeedbackRFSuccessAtribuitionDescription" xml:space="preserve">
+    <value>O seu pedido de atribuição de Reserva Financeira de {0} já foi encaminhado para a nossa equipa. Daremos notícias em breve.</value>
+  </data>
+	<!-- Change payment method -->
+	<data name="ConfirmationChangePaymentMethodTitle" xml:space="preserve">
+    <value>Tem a certeza de que pretende alterar a modalidade de pagamento da(s) compra(s) selecionada(s)?</value>
+  </data>
+	<data name="ConfirmationChangePaymentMethodOk" xml:space="preserve">
+    <value>Sim, tenho</value>
+  </data>
+	<data name="ConfirmationChangePaymentMethodBack" xml:space="preserve">
+    <value>Voltar</value>
+  </data>
+	<data name="ConfirmationChangePaymentMethodSuccessTitle" xml:space="preserve">
+    <value>Feito!</value>
+  </data>
+	<data name="ConfirmationChangePaymentMethodSuccessDescription" xml:space="preserve">
+    <value>A(s) compra(s) selecionada(s) serão pagas na modalidade de Conta Permanente.</value>
+  </data>
+	<data name="ConfirmationChangePaymentMethodErrorTitle" xml:space="preserve">
+    <value>Lamentamos informar mas não é possível alterar a modalidade de pagamento. Para mais esclarecimentos, contacte-nos através de um dos nossos canais.</value>
+  </data>
+	<!--    Home Simulation Atribuition popups -->
+	<data name="AllCasesConfirmationHomeSimulationOk" xml:space="preserve">
+    <value>Sim, tenho</value>
+  </data>
+	<data name="AllCasesConfirmationHomeSimulationBack" xml:space="preserve">
+    <value>Voltar</value>
+  </data>
+	<data name="AllCasesFeedbackHomeSimulationBack" xml:space="preserve">
+    <value>Voltar</value>
+  </data>
+	<data name="Case1ConfirmationHomeSimulationTitle" xml:space="preserve">
+    <value>Tem a certeza de que pretende submeter um pedido de financiamento de:</value>
+  </data>
+	<data name="Case1FeedbackHomeSimulationTitle" xml:space="preserve">
+    <value>Simples!</value>
+  </data>
+	<data name="Case1FeedbackHomeSimulationDescription" xml:space="preserve">
+    <value>O seu pedido já foi encaminhado para a nossa equipa. Em breve, entraremos em contacto.</value>
+  </data>
+	<data name="Case2ConfirmationHomeSimulationTitle" xml:space="preserve">
+    <value>Tem a certeza de que pretende submeter o pedido de financiamento no valor de:</value>
+  </data>
+	<data name="Case2FeedbackHomeSimulationTitle" xml:space="preserve">
+    <value>Feito!</value>
+  </data>
+	<data name="Case2FeedbackAprovedHomeSimulationDescription" xml:space="preserve">
+    <value>O seu pedido de financiamento foi aprovado. O valor solicitado será transferido para a sua conta à ordem, no prazo de 48 horas úteis.</value>
+  </data>
+	<data name="Case2FeedbackErrorHomeSimulationDescription" xml:space="preserve">
+    <value>Lamentamos informar mas não é possível disponibilizar o valor solicitado. Para mais esclarecimentos, contacte-nos através de um dos nossos canais.</value>
+  </data>
+	<data name="Case3ConfirmationHomeSimulationTitle" xml:space="preserve">
+    <value>Tem a certeza de que pretende submeter um pedido de financiamento de:</value>
+  </data>
+	<data name="Case3FeedbackHomeSimulationTitle" xml:space="preserve">
+    <value>Simples!</value>
+  </data>
+	<data name="Case3FeedbackHomeSimulationDescription" xml:space="preserve">
+    <value>O seu pedido já foi encaminhado para a nossa equipa. Em breve, entraremos em contacto.</value>
+  </data>
+	<data name="Case4ConfirmationHomeSimulationTitle" xml:space="preserve">
+    <value>Tem a certeza de que pretende submeter um pedido de financiamento de:</value>
+  </data>
+	<data name="Case4FeedbackHomeSimulationTitle" xml:space="preserve">
+    <value>Feito!</value>
+  </data>
+	<data name="Case4FeedbackHomeSimulationDescription" xml:space="preserve">
+    <value>O seu pedido de Crédito Pessoal Oney de {0} já foi encaminhado para a nossa equipa. Em breve entraremos em contacto.</value>
+  </data>
+	<data name="Case5ConfirmationHomeSimulationTitle" xml:space="preserve">
+    <value>Tem a certeza de que pretende submeter um pedido de financiamento de:</value>
+  </data>
+	<data name="Case5ConfirmationHomeSimulationDescription" xml:space="preserve">
+    <value>Tenho conhecimento de que este pedido de financiamento implica um Aumento do Limite de Crédito para {0}€ do meu {1}. Confirmo que pretendo este aumento de carácter definitivo, salvo minha posterior indicação em contrário.</value>
+  </data>
+	<data name="Case5FeedbackHomeSimulationTitle" xml:space="preserve">
+    <value>Feito!</value>
+  </data>
+	<data name="Case5FeedbackHomeSimulationDescription" xml:space="preserve">
+    <value>O seu pedido de financiamento de {0} €, associado ao {1} já foi encaminhado para a nossa equipa. Em breve entraremos em contacto.</value>
+  </data>
+	<data name="Case6ConfirmationHomeSimulationTitle" xml:space="preserve">
+    <value>Tem a certeza de que pretende submeter um pedido de financiamento de:</value>
+  </data>
+	<data name="Case6FeedbackHomeSimulationTitle" xml:space="preserve">
+    <value>Feito!</value>
+  </data>
+	<data name="Case6FeedbackHomeSimulationDescription" xml:space="preserve">
+    <value>O seu pedido de Crédito Pessoal Oney de {0} € já foi encaminhado para a nossa equipa. Em breve entraremos em contacto.</value>
+  </data>
+	<data name="LinkOneyContact" xml:space="preserve">
+    <value>Oney Contacto</value>
+  </data>
+</root>
