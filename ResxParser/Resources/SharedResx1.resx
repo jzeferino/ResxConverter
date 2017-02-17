@@ -141,6 +141,7 @@
 	<data name="FeedbackExtractDuplicateDescription" xml:space="preserve">
     <value>Enviámos-lhe um email com o seu pedido.</value>
   </data>
+	<!--    test comment-->
 	<data name="FeedbackChangePaymentMethodDescription" xml:space="preserve">
     <value>As compras selecionadas serão pagas na modalidade de Conta Permanente.</value>
   </data>
