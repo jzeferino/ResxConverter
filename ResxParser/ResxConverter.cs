@@ -2,6 +2,7 @@
 using System.IO;
 using System.Xml;
 using System.Xml.Linq;
+using System.Linq;
 
 namespace ResxParser
 {
@@ -17,7 +18,9 @@ namespace ResxParser
 
         public void Convert(string folder, Func<string, IResxConverterOutput> outputFactory)
         {
-            var resxPerCulture = Directory.EnumerateFiles(folder, "*.resx");
+            var resxPerCulture = Directory.EnumerateFiles(folder, "*.resx")
+                  .Select(path => new ResxCulture(ExtractCulture(path), Path.GetFileName(path), path));
+
 
             // TODO
             // group by culture if exist {Culture, Name, Path}
@@ -46,6 +49,24 @@ namespace ResxParser
                     }
                 }
             }
+        }
+
+        private class ResxCulture
+        {
+            public ResxCulture(string culture, string filename, string path)
+            {
+                Culture = culture;
+                FileName = filename;
+                Path = path;
+            }
+
+            public string Culture { get; set; }
+            public string FileName { get; set; }
+            public string Path { get; set; }
+        }
+
+        public string ExtractCulture(string filename)
+        {
         }
     }
 }
