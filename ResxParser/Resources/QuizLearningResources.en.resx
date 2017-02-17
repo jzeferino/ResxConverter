@@ -117,46 +117,51 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
-	<data name="FeedbackTitleDone" xml:space="preserve">
-    <value>Feito!</value>
+	<data name="acess_code_is_required" xml:space="preserve">
+    <value>The code is required.</value>
   </data>
-	<data name="FeedbackTitleAlreadyDone" xml:space="preserve">
-    <value>Já está!</value>
+	<data name="added_group_with_success" xml:space="preserve">
+    <value>Successfully added to the group.</value>
   </data>
-	<data name="FeedbackTitleItsSimple" xml:space="preserve">
-    <value>Simples!</value>
+	<data name="alert" xml:space="preserve">
+    <value>Alert</value>
   </data>
-	<data name="FeedbackButtonOk" xml:space="preserve">
-    <value>OK</value>
+	<data name="alert_before_downlaod_quiz" xml:space="preserve">
+    <value>This quiz contains images.
+Downloading this quiz may take some time.
+Do you want to proceed?</value>
   </data>
-	<data name="FeedbackSubscribeInsuranceDescription" xml:space="preserve">
-    <value>O seu pedido foi submetido com sucesso.</value>
+	<data name="cant_download_quiz" xml:space="preserve">
+    <value>Could not complete the quiz download.</value>
   </data>
-	<data name="FeedbackActivateJumboVisaCardDescription" xml:space="preserve">
-    <value>O seu cartão Jumbo Visa foi ativado com sucesso e está pronto para ser usado.</value>
+	<data name="cant_save_quiz" xml:space="preserve">
+    <value>Could not save the quiz content.</value>
   </data>
-	<data name="FeedbackSubscribeDigitalExtractDescription" xml:space="preserve">
-    <value>A partir de agora poderá consultar o extrato em formato digital na sua Área Cliente. O Ambiente agradece!</value>
+	<data name="downloading_quiz_content" xml:space="preserve">
+    <value>Downloading the quiz content...</value>
   </data>
-	<data name="FeedbackExtractDuplicateDescription" xml:space="preserve">
-    <value>Enviámos-lhe um email com o seu pedido.</value>
+	<data name="email_required" xml:space="preserve">
+    <value>The email field is mandatory.</value>
   </data>
-	<data name="FeedbackChangePaymentMethodDescription" xml:space="preserve">
-    <value>As compras selecionadas serão pagas na modalidade de Conta Permanente.</value>
+	<data name="fill_acces_code" xml:space="preserve">
+    <value>Please fill out the access code.</value>
   </data>
-	<data name="Case5FeedbackHomeSimulationDescription" xml:space="preserve">
-    <value>O seu pedido de financiamento de {0} €, associado ao {1} já foi encaminhado para a nossa equipa. Em breve entraremos em contacto.</value>
+	<data name="fill_email" xml:space="preserve">
+    <value>Please fill in the email field.</value>
   </data>
-	<data name="Case6ConfirmationHomeSimulationTitle" xml:space="preserve">
-    <value>Tem a certeza de que pretende submeter um pedido de financiamento de:</value>
+	<data name="fill_name" xml:space="preserve">
+    <value>Please fill in the name.</value>
   </data>
-	<data name="Case6FeedbackHomeSimulationTitle" xml:space="preserve">
-    <value>Feito!</value>
+	<data name="fill_password" xml:space="preserve">
+    <value>Please fill in the password.</value>
   </data>
-	<data name="Case6FeedbackHomeSimulationDescription" xml:space="preserve">
-    <value>O seu pedido de Crédito Pessoal Oney de {0} € já foi encaminhado para a nossa equipa. Em breve entraremos em contacto.</value>
+	<data name="fill_position" xml:space="preserve">
+    <value>Please fill out your position.</value>
   </data>
-	<data name="LinkOneyContact" xml:space="preserve">
-    <value>Oney Contacto</value>
+	<data name="fill_surname" xml:space="preserve">
+    <value>Please fill in last name.</value>
+  </data>
+	<data name="have_been_challenged" xml:space="preserve">
+    <value> has been challenged.</value>
   </data>
 </root>
