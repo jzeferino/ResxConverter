@@ -59,7 +59,7 @@ namespace ResxParser
     {
         public ResxCulture(string path)
         {
-            Culture = ExtractCulture(path);
+            Culture = Path.GetFileNameWithoutExtension(path).GetExtensionWitoutDot();
             FileName = Path.GetFileName(path);
             FilePath = path;
         }
@@ -67,12 +67,6 @@ namespace ResxParser
         public string Culture { get; set; }
         public string FileName { get; set; }
         public string FilePath { get; set; }
-
-        public string ExtractCulture(string filename)
-        {
-            // TODO: use regex here?
-            return Path.GetFileNameWithoutExtension(filename).GetExtensionWitoutDot();
-        }
     }
 }
 
