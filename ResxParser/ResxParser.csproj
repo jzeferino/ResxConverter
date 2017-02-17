@@ -40,6 +40,11 @@
     <Compile Include="Resources\SharedResx1.Designer.cs">
       <DependentUpon>SharedResx1.resx</DependentUpon>
     </Compile>
+    <Compile Include="ResxConverter.cs" />
+    <Compile Include="IResxConverterOutput.cs" />
+    <Compile Include="StringElement.cs" />
+    <Compile Include="ResxConverterExtensions.cs" />
+    <Compile Include="AndroidResxConverterOutput.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
