@@ -20,7 +20,9 @@ namespace ResxParser
 
         private void InitializeXml()
         {
-            _finalOutPutPath = Path.Combine(_outputProjectFolder, $"values", "strings.xml");
+            var cultureInfo = string.IsNullOrEmpty(_culture) ? string.Empty : $"-{_culture}";
+
+            _finalOutPutPath = Path.Combine(_outputProjectFolder, $"values{cultureInfo}", "strings.xml");
             Directory.CreateDirectory(Path.GetDirectoryName(_finalOutPutPath));
 
             _xDocument = new XDocument(new XElement("resources"));
@@ -44,7 +46,7 @@ namespace ResxParser
         private XElement CreateString(StringElement stringElement)
         {
             var xStringElement = new XElement("string");
-            xStringElement.SetAttributeValue(stringElement.Key, stringElement.Value);
+            xStringElement.SetAttributeValue(stringElement.Key.ToLowerUnderScoreFromCamelCase(), stringElement.Value);
             return xStringElement;
         }
     }

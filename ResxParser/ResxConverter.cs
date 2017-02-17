@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -8,8 +7,7 @@ namespace ResxParser
 {
     public sealed class ResxConverter
     {
-        private static readonly Lazy<ResxConverter> lazy =
-            new Lazy<ResxConverter>(() => new ResxConverter());
+        private static readonly Lazy<ResxConverter> lazy = new Lazy<ResxConverter>(() => new ResxConverter());
 
         public static ResxConverter Instance { get { return lazy.Value; } }
 
@@ -19,20 +17,26 @@ namespace ResxParser
 
         public void Convert(string folder, Func<string, IResxConverterOutput> outputFactory)
         {
-            foreach (string file in Directory.EnumerateFiles(folder, "*.resx"))
-            {
-                using (var outout = outputFactory(file))
-                {
-                    var doc = XDocument.Load(file);
+            var resxPerCulture = Directory.EnumerateFiles(folder, "*.resx");
 
-                    foreach (var element in doc.Descendants())
+            // TODO
+            // group by culture if exist {Culture, Name, Path}
+
+            //FIXME:
+            // element.NodeType == XmlNodeType.Comment don't work.
+
+            using (var outout = outputFactory("culture"))
+            {
+                foreach (string file in resxPerCulture)
+                {
+                    foreach (var element in XDocument.Load(file).Descendants())
                     {
                         if (element.NodeType == XmlNodeType.Element && element.Name == "data")
                         {
                             outout.WriteString((new StringElement
                             {
-                                Key = element.FirstAttribute.Value,
-                                Value = element.Value
+                                Key = element.Attribute("name").Value,
+                                Value = element.Value.Trim()
                             }));
                         }
                         else if (element.NodeType == XmlNodeType.Comment)
@@ -42,7 +46,6 @@ namespace ResxParser
                     }
                 }
             }
-
         }
     }
 }
