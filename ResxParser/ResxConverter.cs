@@ -19,54 +19,61 @@ namespace ResxParser
         public void Convert(string folder, Func<string, IResxConverterOutput> outputFactory)
         {
             var resxPerCulture = Directory.EnumerateFiles(folder, "*.resx")
-                  .Select(path => new ResxCulture(ExtractCulture(path), Path.GetFileName(path), path));
+                  .Select(path => new ResxCulture(path))
+                  .GroupBy(resxCulture => resxCulture.Culture);
 
-
-            // TODO
-            // group by culture if exist {Culture, Name, Path}
-
-            //FIXME:
-            // element.NodeType == XmlNodeType.Comment don't work.
-
-            using (var outout = outputFactory("culture"))
+            foreach (var resxGroup in resxPerCulture)
             {
-                foreach (string file in resxPerCulture)
+                using (var output = outputFactory(resxGroup.Key))
                 {
-                    foreach (var element in XDocument.Load(file).Descendants())
+                    foreach (var resxCulture in resxGroup)
                     {
-                        if (element.NodeType == XmlNodeType.Element && element.Name == "data")
+                        // Writes the file we are converting into a comment.
+                        output.WriteComment(resxCulture.FileName);
+
+                        foreach (var element in XDocument.Load(resxCulture.FilePath).Descendants())
                         {
-                            outout.WriteString((new StringElement
+                            if (element.NodeType == XmlNodeType.Element && element.Name == "data")
                             {
-                                Key = element.Attribute("name").Value,
-                                Value = element.Value.Trim()
-                            }));
-                        }
-                        else if (element.NodeType == XmlNodeType.Comment)
-                        {
-                            outout.WriteComment(element.Value);
+                                output.WriteString((new StringElement
+                                {
+                                    Key = element.Attribute("name").Value,
+                                    Value = element.Value.Trim()
+                                }));
+                            }
+                            //FIXME:
+                            // element.NodeType == XmlNodeType.Comment don't work.
+                            else if (element.NodeType == XmlNodeType.Comment)
+                            {
+                                output.WriteComment(element.Value);
+                            }
                         }
                     }
                 }
             }
         }
 
-        private class ResxCulture
-        {
-            public ResxCulture(string culture, string filename, string path)
-            {
-                Culture = culture;
-                FileName = filename;
-                Path = path;
-            }
 
-            public string Culture { get; set; }
-            public string FileName { get; set; }
-            public string Path { get; set; }
+    }
+
+    internal class ResxCulture
+    {
+        public ResxCulture(string path)
+        {
+            Culture = ExtractCulture(path);
+            FileName = Path.GetFileName(path);
+            FilePath = path;
         }
+
+        public string Culture { get; set; }
+        public string FileName { get; set; }
+        public string FilePath { get; set; }
 
         public string ExtractCulture(string filename)
         {
+            // TODO: use regex here?
+            return Path.GetFileNameWithoutExtension(filename).GetExtensionWitoutDot();
         }
     }
 }
+

@@ -15,10 +15,10 @@ namespace ResxParser
             _outputProjectFolder = outputProjectFolder;
             _culture = culture;
 
-            InitializeXml();
+            CreateXml();
         }
 
-        private void InitializeXml()
+        private void CreateXml()
         {
             var cultureInfo = string.IsNullOrEmpty(_culture) ? string.Empty : $"-{_culture}";
 

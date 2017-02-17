@@ -5,8 +5,11 @@
         public static void Main(string[] args)
         {
             var resxFolder = "Resources";
-            var outputFile = "res";
-            ResxConverter.Instance.ConvertToAndroid(resxFolder, outputFile);
+            var androidOutputFile = "res";
+            var iosOutputFile = "Resources";
+
+            ResxConverter.Instance.ConvertToAndroid(resxFolder, androidOutputFile);
+            ResxConverter.Instance.ConvertToiOS(resxFolder, iosOutputFile);
         }
     }
 }
