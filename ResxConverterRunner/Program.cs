@@ -1,6 +1,8 @@
-﻿namespace ResxParser
+﻿using ResxParser;
+
+namespace ResxConverterRunner
 {
-    public class MainClass
+    class MainClass
     {
         public static void Main(string[] args)
         {

@@ -1,10 +1,10 @@
-#r ResxParser/bin/Debug/ResxParser.exe
+#r ResxParser/bin/Debug/ResxParser.dll
 using ResxParser;
 
 Task("Default")
   .Does(() =>
 {
-    var resxFolder = "ResxParser/Resources";
+    var resxFolder = "ResxConverterRunner/Resources";
     var androidOutputFile = "artifacts/res";
     var iosOutputFile = "artifacts/Resources";
 
