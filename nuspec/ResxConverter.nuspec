@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>ResxConverter</id>
+    <version>$version$</version>
+    <title>ResxConverter</title>
+    <authors></authors>
+    <licenseUrl></licenseUrl>
+    <projectUrl></projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description></description>    
+    <tags></tags>
+  </metadata>
+  <files>
+    <file src="" target="" />
+  </files>
+</package>
