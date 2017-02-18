@@ -1,10 +1,9 @@
 ﻿using System;
 using System.IO;
-using System.Xml;
 using System.Xml.Linq;
 using System.Linq;
 
-namespace ResxParser
+namespace ResxConverter.Core
 {
     public sealed class ResxConverter
     {
@@ -38,7 +37,7 @@ namespace ResxParser
 
                             if (element != null && element.Name == "data")
                             {
-                                output.WriteString((new StringElement
+                                output.WriteString((new ResxString
                                 {
                                     Key = element.Attribute("name").Value,
                                     Value = element.Value.Trim()

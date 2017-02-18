@@ -5,8 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{9BC227F4-F760-4C64-8C7D-6CEA4982919F}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>ResxParser</RootNamespace>
-    <AssemblyName>ResxParser</AssemblyName>
+    <RootNamespace>ResxConverter</RootNamespace>
+    <AssemblyName>ResxConverter</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -28,17 +28,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResxConverter.cs" />
     <Compile Include="IResxConverterOutput.cs" />
-    <Compile Include="StringElement.cs" />
+    <Compile Include="ResxString.cs" />
     <Compile Include="ResxConverterExtensions.cs" />
-    <Compile Include="AndroidResxConverterOutput.cs" />
-    <Compile Include="iOSResxConverterOutput.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

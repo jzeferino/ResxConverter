@@ -1,4 +1,4 @@
-﻿using ResxParser;
+﻿using ResxConverter.Mobile;
 
 namespace ResxConverterRunner
 {
@@ -10,8 +10,8 @@ namespace ResxConverterRunner
             var androidOutputFile = "res";
             var iosOutputFile = "Resources";
 
-            ResxConverter.Instance.ConvertToAndroid(resxFolder, androidOutputFile);
-            ResxConverter.Instance.ConvertToiOS(resxFolder, iosOutputFile);
+            ResxMobileConverters.ConvertToAndroid(resxFolder, androidOutputFile);
+            ResxMobileConverters.ConvertToiOS(resxFolder, iosOutputFile);
         }
     }
 }
