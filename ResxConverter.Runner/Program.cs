@@ -1,6 +1,6 @@
 ﻿using ResxConverter.Mobile;
 
-namespace ResxConverterRunner
+namespace ResxConverter.Runner
 {
     class MainClass
     {
