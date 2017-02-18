@@ -4,7 +4,7 @@ using ResxConverter.Mobile;
 Task("Default")
   .Does(() =>
 {
-    var resxFolder = "ResxConverterRunner/Resources";
+    var resxFolder = "ResxConverter.Runner/Resources";
     var androidOutputFile = "artifacts/res";
     var iosOutputFile = "artifacts/Resources";
 
