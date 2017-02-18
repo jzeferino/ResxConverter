@@ -1,7 +1,8 @@
-﻿using System.Xml.Linq;
-using System.IO;
+﻿using System.IO;
+using System.Xml.Linq;
+using ResxConverter.Core;
 
-namespace ResxParser
+namespace ResxConverter.Mobile
 {
     public class AndroidResxConverterOutput : IResxConverterOutput
     {
@@ -38,12 +39,12 @@ namespace ResxParser
             _xDocument.Root.Add(new XComment(comment));
         }
 
-        public void WriteString(StringElement stringElement)
+        public void WriteString(ResxString stringElement)
         {
             _xDocument.Root.Add(CreateString(stringElement));
         }
 
-        private XElement CreateString(StringElement stringElement)
+        private XElement CreateString(ResxString stringElement)
         {
             var xStringElement = new XElement("string");
             xStringElement.SetAttributeValue(stringElement.Key.ToLowerUnderScoreFromCamelCase(), stringElement.Value);

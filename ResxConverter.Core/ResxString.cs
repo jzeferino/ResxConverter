@@ -1,7 +1,6 @@
-﻿using System;
-namespace ResxParser
+﻿namespace ResxConverter.Core
 {
-    public class StringElement
+    public class ResxString
     {
         public string Key { get; set; }
         public string Value { get; set; }

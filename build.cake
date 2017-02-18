@@ -1,5 +1,5 @@
-#r ResxParser/bin/Debug/ResxParser.dll
-using ResxParser;
+#r ResxConverter.Mobile/bin/Debug/ResxConverter.Mobile.dll
+using ResxConverter.Mobile;
 
 Task("Default")
   .Does(() =>
@@ -8,8 +8,8 @@ Task("Default")
     var androidOutputFile = "artifacts/res";
     var iosOutputFile = "artifacts/Resources";
 
-    ResxConverter.Instance.ConvertToAndroid(resxFolder, androidOutputFile);
-    ResxConverter.Instance.ConvertToiOS(resxFolder, iosOutputFile);
+    ResxMobileConverters.ConvertToAndroid(resxFolder, androidOutputFile);
+    ResxMobileConverters.ConvertToiOS(resxFolder, iosOutputFile);
 });
 
 RunTarget("Default");

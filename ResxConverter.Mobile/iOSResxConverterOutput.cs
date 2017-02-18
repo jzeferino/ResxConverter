@@ -1,7 +1,7 @@
-﻿using System.Xml.Linq;
-using System.IO;
+﻿using System.IO;
+using ResxConverter.Core;
 
-namespace ResxParser
+namespace ResxConverter.Mobile
 {
     public class iOSResxConverterOutput : IResxConverterOutput
     {
@@ -32,6 +32,6 @@ namespace ResxParser
 
         public void WriteComment(string comment) => _streamWriter.WriteLine($"/* {comment} */");
 
-        public void WriteString(StringElement stringElement) => _streamWriter.WriteLine($"\"{stringElement.Key}\" = \"{stringElement.Value}\";");
+        public void WriteString(ResxString stringElement) => _streamWriter.WriteLine($"\"{stringElement.Key.ToLowerUnderScoreFromCamelCase()}\" = \"{stringElement.Value}\";");
     }
 }

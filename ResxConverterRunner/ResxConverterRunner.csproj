@@ -46,12 +46,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ResxParser\ResxParser.csproj">
-      <Project>{9BC227F4-F760-4C64-8C7D-6CEA4982919F}</Project>
-      <Name>ResxParser</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
@@ -75,6 +69,12 @@
       <LastGenOutput>SharedResx2.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ResxConverter.Mobile\ResxConverter.Mobile.csproj">
+      <Project>{CD45FC8C-9DB7-4981-A6B8-74D8465171DB}</Project>
+      <Name>ResxConverter.Mobile</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

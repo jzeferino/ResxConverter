@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResxConverterRunner", "ResxConverterRunner\ResxConverterRunner.csproj", "{630EA0E8-56A5-416B-A97D-FCC2579657C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResxConverter.Core", "ResxConverter.Core\ResxConverter.Core.csproj", "{9BC227F4-F760-4C64-8C7D-6CEA4982919F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResxConverter.Mobile", "ResxConverter.Mobile\ResxConverter.Mobile.csproj", "{CD45FC8C-9DB7-4981-A6B8-74D8465171DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{630EA0E8-56A5-416B-A97D-FCC2579657C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{630EA0E8-56A5-416B-A97D-FCC2579657C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{630EA0E8-56A5-416B-A97D-FCC2579657C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{630EA0E8-56A5-416B-A97D-FCC2579657C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BC227F4-F760-4C64-8C7D-6CEA4982919F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC227F4-F760-4C64-8C7D-6CEA4982919F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC227F4-F760-4C64-8C7D-6CEA4982919F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BC227F4-F760-4C64-8C7D-6CEA4982919F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD45FC8C-9DB7-4981-A6B8-74D8465171DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD45FC8C-9DB7-4981-A6B8-74D8465171DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD45FC8C-9DB7-4981-A6B8-74D8465171DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD45FC8C-9DB7-4981-A6B8-74D8465171DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

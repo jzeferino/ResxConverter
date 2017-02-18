@@ -1,9 +1,9 @@
 ﻿using System;
-namespace ResxParser
+namespace ResxConverter.Core
 {
     public interface IResxConverterOutput : IDisposable
     {
-        void WriteString(StringElement stringElement);
+        void WriteString(ResxString stringElement);
         void WriteComment(string comment);
     }
 }
