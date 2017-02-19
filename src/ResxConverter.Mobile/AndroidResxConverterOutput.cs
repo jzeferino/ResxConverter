@@ -46,8 +46,11 @@ namespace ResxConverter.Mobile
 
         private XElement CreateString(ResxString stringElement)
         {
-            var xStringElement = new XElement("string");
-            xStringElement.SetAttributeValue(stringElement.Key.ToLowerUnderScoreFromCamelCase(), stringElement.Value);
+            var xStringElement = new XElement("string")
+            {
+                Value = stringElement.Value
+            };
+            xStringElement.SetAttributeValue("name", stringElement.Key.ToLowerUnderScoreFromCamelCase());
             return xStringElement;
         }
     }
