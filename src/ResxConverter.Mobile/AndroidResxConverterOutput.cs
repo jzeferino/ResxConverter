@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Xml.Linq;
 using ResxConverter.Core;
+using System.Globalization;
 
 namespace ResxConverter.Mobile
 {
@@ -9,7 +10,7 @@ namespace ResxConverter.Mobile
         private string _culture;
         private string _outputProjectFolder;
         private XDocument _xDocument;
-        private string _finalOutPutPath;
+        private string _finalOutputPath;
 
         public AndroidResxConverterOutput(string outputProjectFolder, string culture)
         {
@@ -21,17 +22,31 @@ namespace ResxConverter.Mobile
 
         private void CreateXml()
         {
-            var cultureInfo = string.IsNullOrEmpty(_culture) ? string.Empty : $"-{_culture}";
+            var cultureSuffix = string.Empty;
 
-            _finalOutPutPath = Path.Combine(_outputProjectFolder, $"values{cultureInfo}", "strings.xml");
-            Directory.CreateDirectory(Path.GetDirectoryName(_finalOutPutPath));
+            if (!string.IsNullOrEmpty(_culture))
+            {
+                var cultureInfo = new CultureInfo(_culture);
+                if (cultureInfo.IsNeutralCulture)
+                {
+                    cultureSuffix = $"-{cultureInfo.TwoLetterISOLanguageName}";
+                }
+                else
+                {
+                    var regionInfo = new RegionInfo(cultureInfo.LCID);
+                    cultureSuffix = $"-{cultureInfo.TwoLetterISOLanguageName}-r{regionInfo.TwoLetterISORegionName}";
+                }
+            }
+
+            _finalOutputPath = Path.Combine(_outputProjectFolder, $"values{cultureSuffix}", "strings.xml");
+            Directory.CreateDirectory(Path.GetDirectoryName(_finalOutputPath));
 
             _xDocument = new XDocument(new XElement("resources"));
         }
 
         public void Dispose()
         {
-            _xDocument.Save(_finalOutPutPath);
+            _xDocument.Save(_finalOutputPath);
         }
 
         public void WriteComment(string comment)
