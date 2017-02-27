@@ -1,4 +1,4 @@
-#r src/ResxConverter.Mobile/bin/Debug/ResxConverter.Mobile.dll
+#r src/ResxConverter.Mobile/bin/Release/ResxConverter.Mobile.dll
 using ResxConverter.Mobile;
 
 #addin Cake.SemVer
