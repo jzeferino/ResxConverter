@@ -37,11 +37,11 @@ namespace ResxConverter.Core
 
                             if (element != null && element.Name == "data")
                             {
-                                output.WriteString((new ResxString
+                                output.WriteString(new ResxString
                                 {
                                     Key = element.Attribute("name").Value,
                                     Value = element.Value.Trim()
-                                }));
+                                });
                             }
                             else if (comment != null)
                             {
