@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace ResxConverter.Core
 {
     public interface IResxConverterOutput : IDisposable
