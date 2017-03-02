@@ -39,9 +39,28 @@ namespace ResxConverter.Core.Tests
             var sut = new ResxConverter(factoryMock.Object);
             sut.Convert("Resources/SingleCulture", _fixture.Create<string>());
 
-            outputMock.Verify(o => o.WriteComment("Empty1.resx"), Times.Once);
-            outputMock.Verify(o => o.WriteComment("Empty2.resx"), Times.Once);
-            outputMock.Verify(o => o.WriteComment("Empty3.resx"), Times.Once);
+            outputMock.Verify(o => o.WriteComment("R1.resx"), Times.Once);
+            outputMock.Verify(o => o.WriteComment("R2.resx"), Times.Once);
+            outputMock.Verify(o => o.WriteComment("R3.resx"), Times.Once);
+        }
+
+        [Fact]
+        public void Writes_Expected_Strings()
+        {
+            var factoryMock = new Mock<IResxConverterOutputFactory>();
+            var outputMock = new Mock<IResxConverterOutput>();
+
+            factoryMock
+                .Setup(f => f.Create(It.IsAny<string>(), It.IsAny<string>()))
+                .Returns(outputMock.Object);
+
+            var sut = new ResxConverter(factoryMock.Object);
+            sut.Convert("Resources/SingleCulture", _fixture.Create<string>());
+
+            outputMock.Verify(o => o.WriteString(It.Is<ResxString>(s => s.Key == "R1S1" && s.Value == "R1S1")), Times.Once);
+            outputMock.Verify(o => o.WriteString(It.Is<ResxString>(s => s.Key == "R1S2" && s.Value == "R1S2")), Times.Once);
+            outputMock.Verify(o => o.WriteString(It.Is<ResxString>(s => s.Key == "R2S1" && s.Value == "R2S1")), Times.Once);
+            outputMock.Verify(o => o.WriteString(It.Is<ResxString>(s => s.Key == "R3S1" && s.Value == "R3S1")), Times.Once);
         }
     }
 }

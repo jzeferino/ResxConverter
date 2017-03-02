@@ -77,20 +77,20 @@
       <DependentUpon>Empty1.resx</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Resources\SingleCulture\Empty1.Designer.cs">
+    <Compile Include="Resources\SingleCulture\R1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Empty1.resx</DependentUpon>
+      <DependentUpon>R1.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\SingleCulture\Empty2.Designer.cs">
+    <Compile Include="Resources\SingleCulture\R2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Empty2.resx</DependentUpon>
+      <DependentUpon>R2.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\SingleCulture\Empty3.Designer.cs">
+    <Compile Include="Resources\SingleCulture\R3.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Empty3.resx</DependentUpon>
+      <DependentUpon>R3.resx</DependentUpon>
     </Compile>
     <Compile Include="ResxConverterTests.cs" />
   </ItemGroup>
@@ -125,24 +125,24 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\SingleCulture\Empty1.resx">
+    <Content Include="Resources\SingleCulture\R1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Empty1.Designer.cs</LastGenOutput>
+      <LastGenOutput>R1.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\SingleCulture\Empty2.resx">
+    <Content Include="Resources\SingleCulture\R2.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Empty2.Designer.cs</LastGenOutput>
+      <LastGenOutput>R2.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\SingleCulture\Empty3.resx">
+    <Content Include="Resources\SingleCulture\R3.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Empty3.Designer.cs</LastGenOutput>
+      <LastGenOutput>R3.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
