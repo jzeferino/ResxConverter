@@ -1,32 +1,28 @@
-﻿using System.IO;
-using System.Xml.Linq;
-using ResxConverter.Core;
+﻿using ResxConverter.Core;
 using System.Globalization;
+using System.IO;
+using System.Xml.Linq;
 
 namespace ResxConverter.Mobile
 {
     public class AndroidResxConverterOutput : IResxConverterOutput
     {
-        private string _culture;
-        private string _outputProjectFolder;
-        private XDocument _xDocument;
-        private string _finalOutputPath;
-
-        public AndroidResxConverterOutput(string outputProjectFolder, string culture)
+        public string OutputFilePath { get; }
+        private readonly XDocument _xDocument;
+        
+        public AndroidResxConverterOutput(string outputFolder, string culture)
         {
-            _outputProjectFolder = outputProjectFolder;
-            _culture = culture;
-
-            CreateXml();
+            OutputFilePath = GetOutputFilePath(outputFolder, culture);
+            _xDocument = new XDocument(new XElement("resources"));
         }
 
-        private void CreateXml()
+        private static string GetOutputFilePath(string outputFolder, string culture)
         {
             var cultureSuffix = string.Empty;
 
-            if (!string.IsNullOrEmpty(_culture))
+            if (!string.IsNullOrEmpty(culture))
             {
-                var cultureInfo = new CultureInfo(_culture);
+                var cultureInfo = new CultureInfo(culture);
                 if (cultureInfo.IsNeutralCulture)
                 {
                     cultureSuffix = $"-{cultureInfo.TwoLetterISOLanguageName}";
@@ -38,15 +34,13 @@ namespace ResxConverter.Mobile
                 }
             }
 
-            _finalOutputPath = Path.Combine(_outputProjectFolder, $"values{cultureSuffix}", "strings.xml");
-            Directory.CreateDirectory(Path.GetDirectoryName(_finalOutputPath));
-
-            _xDocument = new XDocument(new XElement("resources"));
+            return Path.Combine(outputFolder, $"values{cultureSuffix}", "strings.xml");
         }
 
         public void Dispose()
         {
-            _xDocument.Save(_finalOutputPath);
+            Directory.CreateDirectory(Path.GetDirectoryName(OutputFilePath));
+            _xDocument.Save(OutputFilePath);
         }
 
         public void WriteComment(string comment)
