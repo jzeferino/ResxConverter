@@ -16,7 +16,12 @@ namespace ResxConverter.Core
         public void Convert(string folder, string outputFolder)
         {
             var resxPerCulture = Directory.EnumerateFiles(folder, "*.resx")
-                  .Select(path => new ResxCulture(path))
+                  .Select(path => new
+                  {
+                      Culture = Path.GetFileNameWithoutExtension(path).GetExtensionWitoutDot(),
+                      FileName = Path.GetFileName(path),
+                      FilePath = path
+                  })
                   .GroupBy(resxCulture => resxCulture.Culture);
 
             foreach (var resxGroup in resxPerCulture)
@@ -33,7 +38,7 @@ namespace ResxConverter.Core
                             var element = node as XElement;
                             var comment = node as XComment;
 
-                            if (element != null && element.Name == "data")
+                            if (element?.Name == "data")
                             {
                                 output.WriteString(new ResxString
                                 {
@@ -50,20 +55,6 @@ namespace ResxConverter.Core
                 }
             }
         }
-    }
-
-    internal class ResxCulture
-    {
-        public ResxCulture(string path)
-        {
-            Culture = Path.GetFileNameWithoutExtension(path).GetExtensionWitoutDot();
-            FileName = Path.GetFileName(path);
-            FilePath = path;
-        }
-
-        public string Culture { get; set; }
-        public string FileName { get; set; }
-        public string FilePath { get; set; }
     }
 }
 
