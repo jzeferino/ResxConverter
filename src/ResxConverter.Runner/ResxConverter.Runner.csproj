@@ -71,6 +71,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ResxConverter.Core\ResxConverter.Core.csproj">
+      <Project>{9bc227f4-f760-4c64-8c7d-6cea4982919f}</Project>
+      <Name>ResxConverter.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ResxConverter.Mobile\ResxConverter.Mobile.csproj">
       <Project>{CD45FC8C-9DB7-4981-A6B8-74D8465171DB}</Project>
       <Name>ResxConverter.Mobile</Name>

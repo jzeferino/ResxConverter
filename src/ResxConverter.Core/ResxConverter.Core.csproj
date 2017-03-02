@@ -32,6 +32,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ResxConverterOutputFactory.cs" />
+    <Compile Include="IResxConverterOutputFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResxConverter.cs" />
     <Compile Include="IResxConverterOutput.cs" />

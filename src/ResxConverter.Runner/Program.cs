@@ -10,8 +10,8 @@ namespace ResxConverter.Runner
             var androidOutputFile = "res";
             var iosOutputFile = "Resources";
 
-            ResxMobileConverters.ConvertToAndroid(resxFolder, androidOutputFile);
-            ResxMobileConverters.ConvertToiOS(resxFolder, iosOutputFile);
+            ResxConverters.Android.Convert(resxFolder, androidOutputFile);
+            ResxConverters.iOS.Convert(resxFolder, iosOutputFile);
         }
     }
 }

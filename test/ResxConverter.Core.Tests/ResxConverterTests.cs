@@ -1,37 +1,43 @@
 ﻿using Moq;
+using Ploeh.AutoFixture;
 using Xunit;
 
 namespace ResxConverter.Core.Tests
 {
     public class ResxConverterTests
     {
-        public interface IOutputFactory
-        {
-            IResxConverterOutput Create(string culture);
-        }
+        private readonly Fixture _fixture = new Fixture();
 
         [Fact]
         public void Creates_One_Output_File_Per_Culture()
         {
-            var factoryMock = new Mock<IOutputFactory>();
+            var factoryMock = new Mock<IResxConverterOutputFactory>();
             var outputMock = new Mock<IResxConverterOutput>();
+            var outputFolder = _fixture.Create<string>();
 
             factoryMock
-                .Setup(f => f.Create(It.IsAny<string>()))
+                .Setup(f => f.Create(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(outputMock.Object);
 
-            ResxConverter.Instance.Convert("Resources/Empty", c => factoryMock.Object.Create(c));
+            var sut = new ResxConverter(factoryMock.Object);
+            sut.Convert("Resources/Empty", outputFolder);
 
-            factoryMock.Verify(f => f.Create(""), Times.Once);
-            factoryMock.Verify(f => f.Create("pt-PT"), Times.Once);
+            factoryMock.Verify(f => f.Create("", outputFolder), Times.Once);
+            factoryMock.Verify(f => f.Create("pt-PT", outputFolder), Times.Once);
         }
 
         [Fact]
         public void Writes_One_Comment_Per_Resx_File()
         {
+            var factoryMock = new Mock<IResxConverterOutputFactory>();
             var outputMock = new Mock<IResxConverterOutput>();
 
-            ResxConverter.Instance.Convert("Resources/SingleCulture", c => outputMock.Object);
+            factoryMock
+                .Setup(f => f.Create(It.IsAny<string>(), It.IsAny<string>()))
+                .Returns(outputMock.Object);
+
+            var sut = new ResxConverter(factoryMock.Object);
+            sut.Convert("Resources/SingleCulture", _fixture.Create<string>());
 
             outputMock.Verify(o => o.WriteComment("Empty1.resx"), Times.Once);
             outputMock.Verify(o => o.WriteComment("Empty2.resx"), Times.Once);
