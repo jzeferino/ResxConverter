@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Xml.Linq;
 using System.Linq;
+using System;
 
 namespace ResxConverter.Core
 {
@@ -10,12 +11,27 @@ namespace ResxConverter.Core
 
         public ResxConverter(IResxConverterOutputFactory outputFactory)
         {
+            if (outputFactory == null)
+            {
+                throw new ArgumentNullException(nameof(outputFactory));
+            }
+
             _outputFactory = outputFactory;
         }
 
-        public void Convert(string folder, string outputFolder)
+        public void Convert(string inputFolder, string outputFolder)
         {
-            var resxPerCulture = Directory.EnumerateFiles(folder, "*.resx")
+            if (inputFolder == null)
+            {
+                throw new ArgumentNullException(nameof(inputFolder));
+            }
+
+            if (outputFolder == null)
+            {
+                throw new ArgumentNullException(nameof(outputFolder));
+            }
+
+            var resxPerCulture = Directory.EnumerateFiles(inputFolder, "*.resx")
                   .Select(path => new
                   {
                       Culture = Path.GetFileNameWithoutExtension(path).GetExtensionWitoutDot(),

@@ -8,6 +8,11 @@ namespace ResxConverter.Core
 
         public ResxConverterOutputFactory(Func<string, string, IResxConverterOutput> factory)
         {
+            if (factory == null)
+            {
+                throw new ArgumentNullException(nameof(factory));
+            }
+
             _factory = factory;
         }
 

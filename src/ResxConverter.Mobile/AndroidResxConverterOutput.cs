@@ -1,4 +1,5 @@
 ﻿using ResxConverter.Core;
+using System;
 using System.Globalization;
 using System.IO;
 using System.Xml.Linq;
@@ -9,9 +10,14 @@ namespace ResxConverter.Mobile
     {
         public string OutputFilePath { get; }
         private readonly XDocument _xDocument;
-        
+
         public AndroidResxConverterOutput(string outputFolder, string culture)
         {
+            if (outputFolder == null)
+            {
+                throw new ArgumentNullException(nameof(outputFolder));
+            }
+
             OutputFilePath = GetOutputFilePath(outputFolder, culture);
             _xDocument = new XDocument(new XElement("resources"));
         }

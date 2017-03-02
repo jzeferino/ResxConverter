@@ -1,4 +1,5 @@
 ﻿using ResxConverter.Core;
+using System;
 using System.IO;
 
 namespace ResxConverter.Mobile
@@ -8,10 +9,15 @@ namespace ResxConverter.Mobile
         public string OutputFilePath { get; }
         private readonly StreamWriter _streamWriter;
 
-        public iOSResxConverterOutput(string outputProjectFolder, string culture)
+        public iOSResxConverterOutput(string outputFolder, string culture)
         {
+            if (outputFolder == null)
+            {
+                throw new ArgumentNullException(nameof(outputFolder));
+            }
+
             culture = string.IsNullOrEmpty(culture) ? "Base" : culture;
-            OutputFilePath = Path.Combine(outputProjectFolder, $"{culture}.Iproj", "Localizable.strings");
+            OutputFilePath = Path.Combine(outputFolder, $"{culture}.Iproj", "Localizable.strings");
             Directory.CreateDirectory(Path.GetDirectoryName(OutputFilePath));
             _streamWriter = new StreamWriter(OutputFilePath);
         }
