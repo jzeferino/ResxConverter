@@ -1,6 +1,3 @@
-#r src/ResxConverter.Mobile/bin/Release/ResxConverter.Mobile.dll
-using ResxConverter.Mobile;
-
 #addin Cake.SemVer
 
 // Enviroment
@@ -69,20 +66,8 @@ Task ("NuGet")
       });	
 });
 
-Task("RunResxConverter")
-  .Does(() =>
-{
-    var resxFolder = "src/ResxConverter.Runner/Resources";
-    var androidOutputFile = "artifacts/res";
-    var iosOutputFile = "artifacts/Resources";
-
-    ResxMobileConverters.ConvertToAndroid(resxFolder, androidOutputFile);
-    ResxMobileConverters.ConvertToiOS(resxFolder, iosOutputFile);
-});
-
 Task("Default")
-	.IsDependentOn("Build")
-  .IsDependentOn("RunResxConverter")  
+	.IsDependentOn("Build") 
 	.Does(() => {});
 
 RunTarget("Default");
