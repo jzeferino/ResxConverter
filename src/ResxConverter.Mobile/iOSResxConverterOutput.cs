@@ -1,31 +1,19 @@
-﻿using System.IO;
-using ResxConverter.Core;
+﻿using ResxConverter.Core;
+using System.IO;
 
 namespace ResxConverter.Mobile
 {
     public class iOSResxConverterOutput : IResxConverterOutput
     {
-        private string _culture;
-        private string _outputProjectFolder;
-        private StreamWriter _streamWriter;
-        private string _finalOutPutPath;
+        public string OutputFilePath { get; }
+        private readonly StreamWriter _streamWriter;
 
         public iOSResxConverterOutput(string outputProjectFolder, string culture)
         {
-            _outputProjectFolder = outputProjectFolder;
-            _culture = culture;
-
-            CreateFile();
-        }
-
-        private void CreateFile()
-        {
-            var cultureInfo = string.IsNullOrEmpty(_culture) ? "Base" : _culture;
-
-            _finalOutPutPath = Path.Combine(_outputProjectFolder, $"{cultureInfo}.Iproj", "Localizable.strings");
-            Directory.CreateDirectory(Path.GetDirectoryName(_finalOutPutPath));
-
-            _streamWriter = new StreamWriter(_finalOutPutPath);
+            culture = string.IsNullOrEmpty(culture) ? "Base" : culture;
+            OutputFilePath = Path.Combine(outputProjectFolder, $"{culture}.Iproj", "Localizable.strings");
+            Directory.CreateDirectory(Path.GetDirectoryName(OutputFilePath));
+            _streamWriter = new StreamWriter(OutputFilePath);
         }
 
         public void Dispose() => _streamWriter.Dispose();

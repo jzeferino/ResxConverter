@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Xml.Linq;
 using System.Linq;
 
@@ -7,15 +6,14 @@ namespace ResxConverter.Core
 {
     public sealed class ResxConverter
     {
-        private static readonly Lazy<ResxConverter> lazy = new Lazy<ResxConverter>(() => new ResxConverter());
+        private readonly IResxConverterOutputFactory _outputFactory;
 
-        public static ResxConverter Instance { get { return lazy.Value; } }
-
-        private ResxConverter()
+        public ResxConverter(IResxConverterOutputFactory outputFactory)
         {
+            _outputFactory = outputFactory;
         }
 
-        public void Convert(string folder, Func<string, IResxConverterOutput> outputFactory)
+        public void Convert(string folder, string outputFolder)
         {
             var resxPerCulture = Directory.EnumerateFiles(folder, "*.resx")
                   .Select(path => new ResxCulture(path))
@@ -23,7 +21,7 @@ namespace ResxConverter.Core
 
             foreach (var resxGroup in resxPerCulture)
             {
-                using (var output = outputFactory(resxGroup.Key))
+                using (var output = _outputFactory.Create(resxGroup.Key, outputFolder))
                 {
                     foreach (var resxCulture in resxGroup)
                     {
@@ -37,11 +35,11 @@ namespace ResxConverter.Core
 
                             if (element != null && element.Name == "data")
                             {
-                                output.WriteString((new ResxString
+                                output.WriteString(new ResxString
                                 {
                                     Key = element.Attribute("name").Value,
                                     Value = element.Value.Trim()
-                                }));
+                                });
                             }
                             else if (comment != null)
                             {
