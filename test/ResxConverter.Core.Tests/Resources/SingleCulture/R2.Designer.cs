@@ -22,14 +22,14 @@ namespace ResxConverter.Core.Tests.Resources.SingleCulture {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Empty1 {
+    internal class R2 {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Empty1() {
+        internal R2() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ResxConverter.Core.Tests.Resources.SingleCulture {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ResxConverter.Core.Tests.Resources.SingleCulture.Empty1", typeof(Empty1).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ResxConverter.Core.Tests.Resources.SingleCulture.R2", typeof(R2).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,15 @@ namespace ResxConverter.Core.Tests.Resources.SingleCulture {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to R2S1.
+        /// </summary>
+        internal static string R2S1 {
+            get {
+                return ResourceManager.GetString("R2S1", resourceCulture);
             }
         }
     }
