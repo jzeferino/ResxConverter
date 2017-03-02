@@ -1,5 +1,5 @@
-﻿using System.IO;
-using ResxConverter.Core;
+﻿using ResxConverter.Core;
+using System.IO;
 
 namespace ResxConverter.Mobile
 {
