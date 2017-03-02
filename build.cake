@@ -1,5 +1,7 @@
 #addin Cake.SemVer
 
+#tool "xunit.runner.console&version=2.2.0"
+
 // Enviroment
 var isRunningOnAppVeyor = AppVeyor.IsRunningOnAppVeyor;
 
@@ -10,6 +12,9 @@ var configuration = "Release";
 // Define directories.
 var solutionFile = new FilePath("ResxConverter.sln");
 var artifactsDirectory = new DirectoryPath("artifacts");
+
+// Tests.
+var testsDllPath = $"./test/**/bin/{configuration}/*.Tests.dll";
 
 // Versioning.
 var version = EnvironmentVariable ("APPVEYOR_BUILD_VERSION") ?? Argument("version", "9.9.9-build9");
@@ -48,6 +53,21 @@ Task("Build")
         .SetVerbosity(Verbosity.Minimal));
 });
 
+Task("Run-Tests")
+  .IsDependentOn("Build")
+  .Does(() =>
+{
+  foreach(var testDll in GetFiles(testsDllPath))
+  {
+    XUnit2(testDll.FullPath, 
+      new XUnit2Settings 
+      {
+        XmlReport = true,
+        OutputDirectory = artifactsDirectory
+      });
+  }
+});
+
 Task ("NuGet")
 	.IsDependentOn ("Build")
 	.Does (() =>
@@ -67,7 +87,7 @@ Task ("NuGet")
 });
 
 Task("Default")
-	.IsDependentOn("Build") 
+	.IsDependentOn("Run-Tests") 
 	.Does(() => {});
 
-RunTarget("Default");
+RunTarget(target);
