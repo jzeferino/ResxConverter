@@ -31,7 +31,7 @@ namespace ResxConverter.Core
                 throw new ArgumentNullException(nameof(outputFolder));
             }
 
-            var resxPerCulture = Directory.EnumerateFiles(inputFolder, "*.resx")
+            var resxPerCulture = Directory.EnumerateFiles(inputFolder, "*.resx", SearchOption.AllDirectories)
                   .Select(path => new
                   {
                       Culture = Path.GetFileNameWithoutExtension(path).GetExtensionWitoutDot(),
