@@ -14,7 +14,7 @@ var solutionFile = new FilePath("ResxConverter.sln");
 var artifactsDirectory = new DirectoryPath("artifacts");
 
 // Tests.
-var testsDllPath = $"./test/**/bin/{configuration}/*.Tests.dll";
+var testsDllPath = string.Format("./test/**/bin/{0}/*.Tests.dll", configuration);
 
 // Versioning.
 var version = EnvironmentVariable ("APPVEYOR_BUILD_VERSION") ?? Argument("version", "9.9.9-build9");
