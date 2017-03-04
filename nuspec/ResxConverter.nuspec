@@ -4,14 +4,20 @@
     <id>ResxConverter</id>
     <version>$version$</version>
     <title>ResxConverter</title>
-    <authors></authors>
-    <licenseUrl></licenseUrl>
-    <projectUrl></projectUrl>
+    <authors>jzeferino, Luís Gonçalves</authors>
+    <licenseUrl>https://github.com/jzeferino/ResxConverter/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/jzeferino/ResxConverter</projectUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description></description>    
-    <tags></tags>
+    <description>ResxConverter is a tool that helps convert resx files to any format.</description>    
+    <tags>resx, convert, xamarin, net</tags>
+    <dependencies>
+      <group targetFramework="net46" />
+    </dependencies>
   </metadata>
   <files>
-    <file src="" target="" />
+    <file src="src/ResxConverter.Core/bin/Release/ResxConverter.dll" target="lib" />
+    <file src="src/ResxConverter.Core/bin/Release/ResxConverter.xml" target="lib" />
+    <file src="src/ResxConverter.Mobile/bin/Release/ResxConverter.Mobile.dll" target="lib" />
+    <file src="src/ResxConverter.Mobile/bin/Release/ResxConverter.Mobile.xml" target="lib" />
   </files>
 </package>
