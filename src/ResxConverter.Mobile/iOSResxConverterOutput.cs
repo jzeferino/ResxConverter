@@ -4,6 +4,9 @@ using System.IO;
 
 namespace ResxConverter.Mobile
 {
+    /// <summary>
+    /// iOS Resx converter output.
+    /// </summary>
     public class iOSResxConverterOutput : IResxConverterOutput
     {
         public string OutputFilePath { get; }

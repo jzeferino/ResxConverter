@@ -6,6 +6,9 @@ using System.Xml.Linq;
 
 namespace ResxConverter.Mobile
 {
+    /// <summary>
+    /// Android RESX converter output.
+    /// </summary>
     public class AndroidResxConverterOutput : IResxConverterOutput
     {
         public string OutputFilePath { get; }
