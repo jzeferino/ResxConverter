@@ -10,7 +10,6 @@ test: off
 
 artifacts:
 - path: ./artifacts/*.nupkg
-  name: resxconverter  
 
 cache:
 - tools -> build.cake, tools\packages.config # Cache \tools until build.cake and/or packages.config change
