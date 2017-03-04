@@ -69,7 +69,7 @@ Task("Run-Tests")
 });
 
 Task ("NuGet")
-	.IsDependentOn ("Build")
+	.IsDependentOn ("Run-Tests")
 	.Does (() =>
 {
   var sv = ParseSemVer (version);
@@ -87,7 +87,7 @@ Task ("NuGet")
 });
 
 Task("Default")
-	.IsDependentOn("Run-Tests") 
+	.IsDependentOn("NuGet") 
 	.Does(() => {});
 
 RunTarget(target);
