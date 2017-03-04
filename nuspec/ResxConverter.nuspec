@@ -15,9 +15,9 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="src/ResxConverter.Core/bin/Release/ResxConverter.dll" target="lib" />
-    <file src="src/ResxConverter.Core/bin/Release/ResxConverter.xml" target="lib" />
-    <file src="src/ResxConverter.Mobile/bin/Release/ResxConverter.Mobile.dll" target="lib" />
-    <file src="src/ResxConverter.Mobile/bin/Release/ResxConverter.Mobile.xml" target="lib" />
+    <file src="src/ResxConverter.Core/bin/Release/ResxConverter.dll" target="lib/net46" />
+    <file src="src/ResxConverter.Core/bin/Release/ResxConverter.xml" target="lib/net46" />
+    <file src="src/ResxConverter.Mobile/bin/Release/ResxConverter.Mobile.dll" target="lib/net46" />
+    <file src="src/ResxConverter.Mobile/bin/Release/ResxConverter.Mobile.xml" target="lib/net46" />
   </files>
 </package>
