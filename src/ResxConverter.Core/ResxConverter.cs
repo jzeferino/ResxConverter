@@ -5,10 +5,17 @@ using System;
 
 namespace ResxConverter.Core
 {
+    /// <summary>
+    /// Converts resx files with the suplied <see cref="IResxConverterOutput"/>.
+    /// </summary>
     public sealed class ResxConverter
     {
         private readonly IResxConverterOutputFactory _outputFactory;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:ResxConverter.Core.ResxConverter"/> class.
+        /// </summary>
+        /// <param name="outputFactory">Output factory.</param>
         public ResxConverter(IResxConverterOutputFactory outputFactory)
         {
             if (outputFactory == null)
@@ -19,6 +26,11 @@ namespace ResxConverter.Core
             _outputFactory = outputFactory;
         }
 
+        /// <summary>
+        /// Convert the resx files specified in the inputFolder and place the converter files into outputFolder.
+        /// </summary>
+        /// <param name="inputFolder">Input folder.</param>
+        /// <param name="outputFolder">Output folder.</param>
         public void Convert(string inputFolder, string outputFolder)
         {
             if (inputFolder == null)
