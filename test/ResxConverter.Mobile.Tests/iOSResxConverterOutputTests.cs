@@ -25,7 +25,7 @@ namespace ResxConverter.Mobile.Tests
         [Fact]
         public void Creates_Correct_File_For_Empty_Culture()
         {
-            var expectedPath = Path.Combine(_folder.FullName, "Base.Iproj", "Localizable.strings");
+            var expectedPath = Path.Combine(_folder.FullName, "Base.lproj", "Localizable.strings");
             using (var sut = new iOSResxConverterOutput(_folder.FullName, ""))
             {
                 Assert.Equal(expectedPath, sut.OutputFilePath);
@@ -37,7 +37,7 @@ namespace ResxConverter.Mobile.Tests
         [Fact]
         public void Creates_Correct_File_For_Culture()
         {
-            var expectedPath = Path.Combine(_folder.FullName, "pt-PT.Iproj", "Localizable.strings");
+            var expectedPath = Path.Combine(_folder.FullName, "pt-PT.lproj", "Localizable.strings");
             using (var sut = new iOSResxConverterOutput(_folder.FullName, "pt-PT"))
             {
                 Assert.Equal(expectedPath, sut.OutputFilePath);
