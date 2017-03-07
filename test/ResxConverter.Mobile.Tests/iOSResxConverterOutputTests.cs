@@ -69,5 +69,23 @@ namespace ResxConverter.Mobile.Tests
             s = strings[1];
             Assert.Equal($"\"super_string\" = \"{value2}\";", s);
         }
+
+        [Fact]
+        public void Escapes_Strings()
+        {
+            string filePath, value = "\" text \\ text \n"; // In XML, only \n is used
+
+            using (var sut = new iOSResxConverterOutput(_folder.FullName, ""))
+            {
+                filePath = sut.OutputFilePath;
+                sut.WriteString(new Core.ResxString { Key = "str", Value = value });
+            }
+
+            var strings = File.ReadAllLines(filePath);
+
+            Assert.Equal(1, strings.Length);
+            var s = strings[0];
+            Assert.Equal("\"str\" = \"\\\" text \\\\ text \\n\";", s);
+        }
     }
 }

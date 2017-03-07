@@ -1,6 +1,7 @@
 ﻿using ResxConverter.Core;
 using System;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace ResxConverter.Mobile
 {
@@ -29,6 +30,13 @@ namespace ResxConverter.Mobile
 
         public void WriteComment(string comment) => _streamWriter.WriteLine($"/* {comment} */");
 
-        public void WriteString(ResxString stringElement) => _streamWriter.WriteLine($"\"{stringElement.Key.ToLowerUnderScoreFromCamelCase()}\" = \"{stringElement.Value}\";");
+        public void WriteString(ResxString stringElement)
+        {
+            // Search for " \ or \n using the regex "|\\|\n
+            var value = Regex.Replace(stringElement.Value, "\"|\\\\|\n", EscapeSpecialCharacters);
+            _streamWriter.WriteLine($"\"{stringElement.Key.ToLowerUnderScoreFromCamelCase()}\" = \"{value}\";");
+        }
+
+        private string EscapeSpecialCharacters(Match m) => m.Value == "\n" ? "\\n" : '\\' + m.Value;
     }
 }
