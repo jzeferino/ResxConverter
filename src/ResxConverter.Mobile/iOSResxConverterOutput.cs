@@ -21,7 +21,7 @@ namespace ResxConverter.Mobile
             }
 
             culture = string.IsNullOrEmpty(culture) ? "Base" : culture;
-            OutputFilePath = Path.Combine(outputFolder, $"{culture}.Iproj", "Localizable.strings");
+            OutputFilePath = Path.Combine(outputFolder, $"{culture}.lproj", "Localizable.strings");
             Directory.CreateDirectory(Path.GetDirectoryName(OutputFilePath));
             _streamWriter = new StreamWriter(OutputFilePath);
         }
