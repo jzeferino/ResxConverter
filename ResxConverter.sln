@@ -4,8 +4,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AAF2A3D1-1CA4-480C-B117-74943359D4B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResxConverter.Runner", "src\ResxConverter.Runner\ResxConverter.Runner.csproj", "{630EA0E8-56A5-416B-A97D-FCC2579657C7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResxConverter.Core", "src\ResxConverter.Core\ResxConverter.Core.csproj", "{9BC227F4-F760-4C64-8C7D-6CEA4982919F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResxConverter.Mobile", "src\ResxConverter.Mobile\ResxConverter.Mobile.csproj", "{CD45FC8C-9DB7-4981-A6B8-74D8465171DB}"
@@ -24,10 +22,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{630EA0E8-56A5-416B-A97D-FCC2579657C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{630EA0E8-56A5-416B-A97D-FCC2579657C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{630EA0E8-56A5-416B-A97D-FCC2579657C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{630EA0E8-56A5-416B-A97D-FCC2579657C7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9BC227F4-F760-4C64-8C7D-6CEA4982919F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9BC227F4-F760-4C64-8C7D-6CEA4982919F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BC227F4-F760-4C64-8C7D-6CEA4982919F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -53,7 +47,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{630EA0E8-56A5-416B-A97D-FCC2579657C7} = {AAF2A3D1-1CA4-480C-B117-74943359D4B7}
 		{9BC227F4-F760-4C64-8C7D-6CEA4982919F} = {AAF2A3D1-1CA4-480C-B117-74943359D4B7}
 		{CD45FC8C-9DB7-4981-A6B8-74D8465171DB} = {AAF2A3D1-1CA4-480C-B117-74943359D4B7}
 		{3E69C704-FAF6-4783-BC26-DB59B6D73193} = {5E5AA528-4674-4B77-B1C5-14A5D5CA8AA8}
