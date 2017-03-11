@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResxConverter.Core.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResxConverter.Mobile.Tests", "test\ResxConverter.Mobile.Tests\ResxConverter.Mobile.Tests.csproj", "{E4C546CE-9412-440A-ADD2-8438194F0CDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResxConverter.Mobile.CLI", "src\ResxConverter.Mobile.CLI\ResxConverter.Mobile.CLI.csproj", "{6969AA12-7406-4BAB-9908-B8FDABD852F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResxConverter.CLI", "src\ResxConverter.CLI\ResxConverter.CLI.csproj", "{6969AA12-7406-4BAB-9908-B8FDABD852F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

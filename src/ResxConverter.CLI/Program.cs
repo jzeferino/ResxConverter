@@ -1,8 +1,8 @@
-﻿using System;
+﻿using ResxConverter.Mobile;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace ResxConverter.Mobile.CLI
+namespace ResxConverter.CLI
 {
     class Program
     {
