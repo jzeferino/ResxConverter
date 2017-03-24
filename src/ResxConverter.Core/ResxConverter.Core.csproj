@@ -6,8 +6,9 @@
     <ProjectGuid>{9BC227F4-F760-4C64-8C7D-6CEA4982919F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>ResxConverter.Core</RootNamespace>
-    <AssemblyName>ResxConverter</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <AssemblyName>ResxConverter.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -17,7 +18,8 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile></DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <ExternalConsole>true</ExternalConsole>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -25,7 +27,7 @@
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\ResxConverter.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\ResxConverter.Core.xml</DocumentationFile>
     <ExternalConsole>true</ExternalConsole>
   </PropertyGroup>
   <ItemGroup>
