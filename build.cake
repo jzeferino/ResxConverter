@@ -75,7 +75,7 @@ Task ("NuGet")
   var sv = ParseSemVer (version);
   var nugetVersion = CreateSemVer (sv.Major, sv.Minor, sv.Patch).ToString();
   
-  NuGetPack ("./nuspec/ResxConverter.nuspec", 
+  NuGetPack ("./nuspec/Cake.ResxConverter.nuspec", 
     new NuGetPackSettings 
       { 
         Version = nugetVersion,

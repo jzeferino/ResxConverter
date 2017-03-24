@@ -1,16 +1,26 @@
-#r src/ResxConverter.Mobile/bin/Release/ResxConverter.Mobile.dll
-#r src/ResxConverter.Mobile/bin/Release/ResxConverter.dll
+#r src/Cake.ResxConverter/bin/Release/ResxConverter.Core.dll
+#r src/Cake.ResxConverter/bin/Release/ResxConverter.Mobile.dll
+#r src/Cake.ResxConverter/bin/Release/Cake.ResxConverter.dll
 using ResxConverter.Mobile;
 
-Task("RunResxConverter")
+Task("Run")
   .Does(() =>
 {
-    var resxFolder = "src/ResxConverter.Runner/Resources";
-    var androidOutputFile = "artifacts/res";
-    var iosOutputFile = "artifacts/Resources";
+  CleanDirectory("artifacts/generated");
 
-    ResxConverters.Android.Convert(resxFolder, androidOutputFile);
-    ResxConverters.iOS.Convert(resxFolder, iosOutputFile);
+  var resxFolder = "test/ResxConverter.Mobile.Tests/Resources";
+  ResxConverters.Android.Convert(resxFolder, "artifacts/generated/android");
+  ResxConverters.iOS.Convert(resxFolder, "artifacts/generated/ios");
 });
 
-RunTarget("RunResxConverter");
+// #addin nuget:?package=Cake.ResxConverter&prerelease
+
+// Task("Run")
+//   .Does(() =>
+// {
+//   var resxFolder = "test/ResxConverter.Mobile.Tests/Resources";
+//   ResxConverter.ConvertToAndroid(resxFolder, "artifacts/generated/android");
+//   ResxConverter.ConvertToiOS(resxFolder, "artifacts/generated/ios");
+// });
+
+RunTarget("Run");
