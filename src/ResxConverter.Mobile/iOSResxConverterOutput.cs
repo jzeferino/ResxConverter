@@ -10,9 +10,18 @@ namespace ResxConverter.Mobile
     /// </summary>
     public class iOSResxConverterOutput : IResxConverterOutput
     {
+        /// <summary>
+        /// The path of the output file represented by the current instance.
+        /// </summary>
         public string OutputFilePath { get; }
+
         private readonly StreamWriter _streamWriter;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="iOSResxConverterOutput"/> class.
+        /// </summary>
+        /// <param name="outputFolder">The base output folder. A culture-specific folder is created below this folder.</param>
+        /// <param name="culture">The culture for this output.</param>
         public iOSResxConverterOutput(string outputFolder, string culture)
         {
             if (outputFolder == null)
@@ -26,10 +35,21 @@ namespace ResxConverter.Mobile
             _streamWriter = new StreamWriter(OutputFilePath);
         }
 
+        /// <summary>
+        /// Flushes the accumulated data to the output file.
+        /// </summary>
         public void Dispose() => _streamWriter.Dispose();
 
+        /// <summary>
+        /// Writes a comment.
+        /// </summary>
+        /// <param name="comment">Comment.</param>
         public void WriteComment(string comment) => _streamWriter.WriteLine($"/* {comment} */");
 
+        /// <summary>
+        /// Writes a string.
+        /// </summary>
+        /// <param name="stringElement">String. <see cref="ResxString"/></param>
         public void WriteString(ResxString stringElement)
         {
             // Search for " \ or \n using the regex "|\\|\n

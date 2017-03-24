@@ -6,7 +6,7 @@
     public interface IResxConverterOutputFactory
     {
         /// <summary>
-        /// Create the <see cref="IResxConverterOutput"/> from the specified culture and outputFolder.
+        /// Create the <see cref="IResxConverterOutput"/> for the specified culture and outputFolder.
         /// </summary>
         /// <param name="culture">Culture.</param>
         /// <param name="outputFolder">Output folder.</param>

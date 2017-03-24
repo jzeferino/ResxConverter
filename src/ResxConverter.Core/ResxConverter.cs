@@ -6,7 +6,7 @@ using System;
 namespace ResxConverter.Core
 {
     /// <summary>
-    /// Converts resx files with the suplied <see cref="IResxConverterOutput"/>.
+    /// Converts RESX files using outputs created by the suplied <see cref="IResxConverterOutputFactory"/>.
     /// </summary>
     public sealed class ResxConverter
     {
