@@ -35,7 +35,7 @@ namespace Cake.ResxConverter
                 throw new ArgumentNullException(nameof(context));
             }
 
-            return new ResxConverterProvider();
+            return new ResxConverterProvider(context);
         }
     }
 }
