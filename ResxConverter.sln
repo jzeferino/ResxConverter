@@ -16,7 +16,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResxConverter.Mobile.Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResxConverter.CLI", "src\ResxConverter.CLI\ResxConverter.CLI.csproj", "{6969AA12-7406-4BAB-9908-B8FDABD852F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResxConverter.Cake", "src\ResxConverter.Cake\ResxConverter.Cake.csproj", "{04252E62-9B21-4EC2-8ECA-F7F6993EA4CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.ResxConverter", "src\Cake.ResxConverter\Cake.ResxConverter.csproj", "{04252E62-9B21-4EC2-8ECA-F7F6993EA4CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

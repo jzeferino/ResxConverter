@@ -1,6 +1,6 @@
 ﻿using ResxConverter.Mobile;
 
-namespace ResxConverter.Cake
+namespace Cake.ResxConverter
 {
     /// <summary>
     /// Provides different conversion methods.

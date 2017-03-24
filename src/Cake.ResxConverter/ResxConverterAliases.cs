@@ -2,7 +2,7 @@
 using Cake.Core.Annotations;
 using System;
 
-namespace ResxConverter.Cake
+namespace Cake.ResxConverter
 {
     /// <summary>
     /// Contains alias for converting .NET Resx files to different output formats.
