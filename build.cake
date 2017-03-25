@@ -73,8 +73,8 @@ Task ("NuGet")
 	.Does (() =>
 {
   var sv = ParseSemVer (version);
-  var nugetVersion = CreateSemVer (sv.Major, sv.Minor, sv.Patch).ToString();
-  
+  var nugetVersion = isRunningOnAppVeyor ? CreateSemVer(sv.Major, sv.Minor, sv.Patch).ToString() : sv.ToString();
+    
   NuGetPack ("./nuspec/Cake.ResxConverter.nuspec", 
     new NuGetPackSettings 
       { 
