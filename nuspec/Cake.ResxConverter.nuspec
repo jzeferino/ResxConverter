@@ -4,6 +4,7 @@
     <id>Cake.ResxConverter</id>
     <version>$version$</version>
     <title>Cake.ResxConverter</title>
+    <iconUrl>https://github.com/jzeferino/ResxConverter/blob/master/art/icon.png?raw=true</iconUrl>
     <authors>jzeferino, Luís Gonçalves</authors>
     <licenseUrl>https://github.com/jzeferino/ResxConverter/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/jzeferino/ResxConverter</projectUrl>
