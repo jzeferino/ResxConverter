@@ -82,5 +82,23 @@ namespace ResxConverter.Mobile.Tests
             Assert.NotNull(strings.SingleOrDefault(s => s.Attribute("name").Value == "my_string1" && s.Value == value1));
             Assert.NotNull(strings.SingleOrDefault(s => s.Attribute("name").Value == "super_string" && s.Value == value2));
         }
+
+        [Fact]
+        public void Escapes_Strings()
+        {
+            string filePath, value = "\" text \\ text ' text \n"; // In XML, only \n is used
+
+            using (var sut = new AndroidResxConverterOutput(_folder.FullName, ""))
+            {
+                filePath = sut.OutputFilePath;
+                sut.WriteString(new Core.ResxString { Key = "str", Value = value });
+            }
+
+            var xDoc = XDocument.Load(filePath);
+            var strings = xDoc.Descendants("string").ToList();
+
+            Assert.Equal(1, strings.Count);
+            Assert.Equal("\\\" text \\\\ text \\' text \\n", strings[0].Value);
+        }
     }
 }

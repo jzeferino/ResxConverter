@@ -86,7 +86,7 @@ namespace ResxConverter.Mobile
         {
             var xStringElement = new XElement("string")
             {
-                Value = stringElement.Value
+                Value = stringElement.Value.EscapeSpecialCharacters(true)
             };
             xStringElement.SetAttributeValue("name", stringElement.Key.ToLowerUnderScoreFromCamelCase());
             return xStringElement;
