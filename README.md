@@ -4,6 +4,10 @@
 ResxConverter
 ===================
 
+<p align="center">
+  <img src="https://github.com/jzeferino/ResxConverter/blob/master/art/icon.png?raw=true"/>
+</p>
+
 ResxConverter is a tool that helps convert resx files to any format.
 
 ResxConverter is shipped into three main packages.
@@ -11,9 +15,9 @@ ResxConverter is shipped into three main packages.
 * The Mobile, that uses the Core and adds support for iOS and Android convertion.
 * The Cake, that wraps the Core and Mobile (or future packages) and allows its use inside the Cake enviroment.
 
-| Core.ResxConverter | Mobile.ResxConverter | Cake.ResxConverter |
+| Core.ResxConverter | CLI.ResxConverter | Cake.ResxConverter |
 |    :---:     |     :---:      |     :---:     |
-| [![NuGet](https://img.shields.io/nuget/v/Core.ResxConverter.svg?label=NuGet)](https://www.nuget.org/packages/Core.ResxConverter/)   |[![NuGet](https://img.shields.io/nuget/v/Mobile.ResxConverter.svg?label=NuGet)](https://www.nuget.org/packages/Mobile.ResxConverter/)     | [![NuGet](https://img.shields.io/nuget/v/Cake.ResxConverter.svg?label=NuGet)](https://www.nuget.org/packages/Cake.ResxConverter/)    |
+| [![NuGet](https://img.shields.io/nuget/v/Core.ResxConverter.svg?label=NuGet)](https://www.nuget.org/packages/Core.ResxConverter/)   |[![NuGet](https://img.shields.io/nuget/v/CLI.ResxConverter.svg?label=NuGet)](https://www.nuget.org/packages/CLI.ResxConverter/)     | [![NuGet](https://img.shields.io/nuget/v/Cake.ResxConverter.svg?label=NuGet)](https://www.nuget.org/packages/Cake.ResxConverter/)    |
 
 ### Usage from Cake
 ```c#
