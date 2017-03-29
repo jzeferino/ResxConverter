@@ -15,7 +15,7 @@ ResxConverter is shipped into three main packages.
 |    :---:     |     :---:      |     :---:     |
 | [![NuGet](https://img.shields.io/nuget/v/Core.ResxConverter.svg?label=NuGet)](https://www.nuget.org/packages/Core.ResxConverter/)   |[![NuGet](https://img.shields.io/nuget/v/Mobile.ResxConverter.svg?label=NuGet)](https://www.nuget.org/packages/Mobile.ResxConverter/)     | [![NuGet](https://img.shields.io/nuget/v/Cake.ResxConverter.svg?label=NuGet)](https://www.nuget.org/packages/Cake.ResxConverter/)    |
 
-### Usage from Cake:
+### Usage from Cake
 ```c#
 #addin nuget:?package=Cake.ResxConverter&prerelease
 
@@ -33,11 +33,48 @@ Task("Run")
 });
 ```
 
-### Usage from code:
+### Usage from code
 
-### How to extend the Core:
+The converters for mobile platforms can be used via the `ResxConverters` class. You'll need to reference `ResxConverter.Mobile` and `ResxConverter.Core`.
 
-### Remarks:
+```c#
+ResxConverters.Android.Convert(resxFolder, "artifacts/generated/android");
+ResxConverters.iOS.Convert(resxFolder, "artifacts/generated/ios");
+```
+
+### How to extend the Core
+
+ResxConverter can be extended by defining new types of outputs. To that end, a new `IResxConverterOutput` should be defined.
+
+```c#
+public class CustomResxOutput : IResxConverterOutput
+{
+    public void Dispose() { ... }
+
+    public void WriteComment(string comment) { ... }
+
+    public void WriteString(ResxString stringElement) { ... }
+}
+```
+
+Note that outputs must implement `IDisposable` and they will be disposed after all content is written.
+
+ResxConverter aggregates content by culture. This means that a new `IResxConverterOutput` is requested for each culture being processed from the source resx files. Outputs are created via the `IResxConverterOutputFactory` interface.
+
+```c#
+public interface IResxConverterOutputFactory
+{
+    IResxConverterOutput Create(string culture, string outputFolder);
+}
+```
+
+You can define a custom factory or reuse the built in `ResxConverterOutputFactory` that accepts a lambda. Finally, you use the factory to create an instance of `ResxConverter`.
+
+```c#
+var converter = new ResxConverter(new ResxConverterOutputFactory((culture, outputFolder) => new CustomResxOutput(outputFolder, culture)));
+```
+
+### Remarks
 
 ### License
 [MIT Licence](LICENSE) 
