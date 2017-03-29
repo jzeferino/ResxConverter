@@ -19,6 +19,20 @@ var testsDllPath = string.Format("./test/**/bin/{0}/*.Tests.dll", configuration)
 // Versioning.
 var version = EnvironmentVariable ("APPVEYOR_BUILD_VERSION") ?? Argument("version", "9.9.9-build9");
 
+// Reusable Packaging
+Action<string, string> Package = (nuspec, nugetVersion) =>
+{
+    NuGetPack (nuspec, 
+    new NuGetPackSettings 
+      { 
+        Version = nugetVersion,
+        Verbosity = NuGetVerbosity.Normal,
+        OutputDirectory = artifactsDirectory,
+        BasePath = "./",
+        ArgumentCustomization = args => args.Append("-NoDefaultExcludes")		
+      });	
+};
+
 Setup((context) =>
 {
 	Information("AppVeyor: {0}", isRunningOnAppVeyor);
@@ -75,15 +89,10 @@ Task ("NuGet")
   var sv = ParseSemVer (version);
   var nugetVersion = isRunningOnAppVeyor ? CreateSemVer(sv.Major, sv.Minor, sv.Patch).ToString() : sv.ToString();
     
-  NuGetPack ("./nuspec/Cake.ResxConverter.nuspec", 
-    new NuGetPackSettings 
-      { 
-        Version = nugetVersion,
-        Verbosity = NuGetVerbosity.Normal,
-        OutputDirectory = artifactsDirectory,
-        BasePath = "./",
-        ArgumentCustomization = args => args.Append("-NoDefaultExcludes")		
-      });	
+  Package("./nuspec/Cake.ResxConverter.nuspec", nugetVersion);
+  Package("./nuspec/ResxConverter.Core.nuspec", nugetVersion);
+  Package("./nuspec/ResxConverter.CLI.nuspec", nugetVersion);
+
 });
 
 Task("Default")
