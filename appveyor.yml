@@ -13,3 +13,4 @@ artifacts:
 
 cache:
 - tools -> build.cake, tools\packages.config # Cache \tools until build.cake and/or packages.config change
+- packages -> **\packages.config
