@@ -1,0 +1,16 @@
+version: '0.0.1-build{build}'
+branches:
+  only:
+  - develop
+  - master
+build_script:
+- ps: .\build.ps1
+
+test: off
+
+artifacts:
+- path: ./artifacts/*.nupkg
+
+cache:
+- tools -> build.cake, tools\packages.config # Cache \tools until build.cake and/or packages.config change
+- packages -> **\packages.config

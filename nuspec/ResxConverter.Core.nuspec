@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>ResxConverter.Core</id>
+    <version>$version$</version>
+    <title>ResxConverter.Core</title>
+    <iconUrl>https://github.com/jzeferino/ResxConverter/blob/master/art/icon.png?raw=true</iconUrl>
+    <authors>jzeferino, Luís Gonçalves</authors>
+    <licenseUrl>https://github.com/jzeferino/ResxConverter/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/jzeferino/ResxConverter</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>ResxConverter.Core is a tool that helps convert Resx files to any format.</description>    
+    <tags>resx, convert, xamarin, net, cake</tags>
+    <dependencies>
+      <group targetFramework="net45" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="src/ResxConverter.Core/bin/Release/ResxConverter.Core.dll" target="lib/net45" />
+    <file src="src/ResxConverter.Core/bin/Release/ResxConverter.Core.xml" target="lib/net45" />
+  </files>
+</package>
