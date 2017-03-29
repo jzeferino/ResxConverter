@@ -21,6 +21,5 @@
     <file src="src/ResxConverter.Mobile/bin/Release/ResxConverter.Mobile.dll" target="lib/net45" />
     <file src="src/ResxConverter.Mobile/bin/Release/ResxConverter.Mobile.xml" target="lib/net45" />
     <file src="src/ResxConverter.CLI/bin/Release/ResxConverter.CLI.exe" target="lib/net45" />
-    <file src="src/ResxConverter.CLI/bin/Release/ResxConverter.CLI.exe.mdb" target="lib/net45" />
   </files>
 </package>
