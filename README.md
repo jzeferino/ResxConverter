@@ -11,13 +11,15 @@ ResxConverter
 ResxConverter is a tool that helps convert resx files to any format.
 
 ResxConverter is shipped into three main packages.
-* The Core, that has the all the resx parsing code and allows you to extend the convertion to any format.
-* The Mobile, that uses the Core and adds support for iOS and Android convertion.
-* The Cake, that wraps the Core and Mobile (or future packages) and allows its use inside the Cake enviroment.
+* Core - includes all the resx parsing code and allows extending the conversion to any format.
+* Cake - allows its use in a [Cake](http://cakebuild.net/) script.
+* CLI - allows its use from the command-line.
 
-| Core.ResxConverter | CLI.ResxConverter | Cake.ResxConverter |
+Both the Cake and CLI packages include all the available converters, namely support for conversion to **iOS and Android resource files**.
+
+| ResxConverter.Core | ResxConverter.CLI | Cake.ResxConverter |
 |    :---:     |     :---:      |     :---:     |
-| [![NuGet](https://img.shields.io/nuget/v/Core.ResxConverter.svg?label=NuGet)](https://www.nuget.org/packages/Core.ResxConverter/)   |[![NuGet](https://img.shields.io/nuget/v/CLI.ResxConverter.svg?label=NuGet)](https://www.nuget.org/packages/CLI.ResxConverter/)     | [![NuGet](https://img.shields.io/nuget/v/Cake.ResxConverter.svg?label=NuGet)](https://www.nuget.org/packages/Cake.ResxConverter/)    |
+| [![NuGet](https://img.shields.io/nuget/v/ResxConverter.Core.svg?label=NuGet)](https://www.nuget.org/packages/ResxConverter.Core/)   |[![NuGet](https://img.shields.io/nuget/v/ResxConverter.CLI.svg?label=NuGet)](https://www.nuget.org/packages/ResxConverter.CLI/)     | [![NuGet](https://img.shields.io/nuget/v/Cake.ResxConverter.svg?label=NuGet)](https://www.nuget.org/packages/Cake.ResxConverter/)    |
 
 ### Usage from Cake
 ```c#
@@ -37,18 +39,31 @@ Task("Run")
 });
 ```
 
-### Usage from code
+### Usage from command-line
 
-The converters for mobile platforms can be used via the `ResxConverters` class. You'll need to reference `ResxConverter.Mobile` and `ResxConverter.Core`.
+ResxConverter can be used from the command line via the `ResxConverter.CLI` package.
 
-```c#
-ResxConverters.Android.Convert(resxFolder, "artifacts/generated/android");
-ResxConverters.iOS.Convert(resxFolder, "artifacts/generated/ios");
 ```
+Install-Package ResxConverter.CLI -Pre
+```
+
+On the command line, converters can be invoked as follows:
+
+```
+ResxConverter.CLI android ./resources ./generated
+```
+
+For complete usage information invoke the CLI without any arguments.
 
 ### How to extend the Core
 
-ResxConverter can be extended by defining new types of outputs. To that end, a new `IResxConverterOutput` should be defined.
+ResxConverter core interfaces are defined in the `ResxConverter.Core` package.
+
+```
+Install-Package ResxConverter.Core -Pre
+```
+
+The library can be extended by defining new types of outputs. To that end, a new `IResxConverterOutput` should be defined.
 
 ```c#
 public class CustomResxOutput : IResxConverterOutput
