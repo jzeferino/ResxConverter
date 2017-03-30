@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/jzeferino/ResxConverter</projectUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>ResxConverter.CLI is a tool that helps convert Resx files to any format.</description>    
-    <tags>resx, convert, xamarin, net, cake</tags>
+    <tags>resx, convert, xamarin, net, cli</tags>
     <dependencies>
       <group targetFramework="net45" />
     </dependencies>
