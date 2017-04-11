@@ -16,8 +16,8 @@ var artifactsDirectory = new DirectoryPath("artifacts");
 // Tests.
 var testsDllPath = string.Format("./test/**/bin/{0}/*.Tests.dll", configuration);
 
-// Versioning.
-var version = EnvironmentVariable ("APPVEYOR_BUILD_VERSION") ?? Argument("version", "9.9.9-build9");
+// Versioning. Used for all the packages and assemblies for now.
+var version = CreateSemVer(0, 0, 1);
 
 // Reusable Packaging
 Action<string, string> Package = (nuspec, nugetVersion) =>
@@ -56,9 +56,21 @@ Task("Restore")
   NuGetRestore(solutionFile);
 });
 
+Task("Patch-AssemblyInfo")
+	.WithCriteria(isRunningOnAppVeyor)
+	.Does(() =>
+{
+  CreateAssemblyInfo("./CommonAssemblyInfo.cs", new AssemblyInfoSettings
+  {
+    // Keep only the major and minor for assembly versions
+    Version = version.Change(patch: 0).ToString()
+  });
+});
+
 Task("Build")
 	.IsDependentOn("Clean")
 	.IsDependentOn("Restore")
+    .IsDependentOn("Patch-AssemblyInfo")
 	.Does(() =>  
 {	
   DotNetBuild(solutionFile, settings => settings
@@ -86,9 +98,14 @@ Task ("NuGet")
 	.IsDependentOn ("Run-Tests")
 	.Does (() =>
 {
-  var sv = ParseSemVer (version);
-  var nugetVersion = isRunningOnAppVeyor ? CreateSemVer(sv.Major, sv.Minor, sv.Patch).ToString() : sv.ToString();
-    
+  if(isRunningOnAppVeyor && AppVeyor.Environment.Repository.Branch == "develop")
+  {
+    version = version.Change(prerelease: "pre" + AppVeyor.Environment.Build.Number);
+    Information("Creating pre-release version of NuGet packages: {0}", version);
+  }
+
+  var nugetVersion = version.ToString();
+
   Package("./nuspec/Cake.ResxConverter.nuspec", nugetVersion);
   Package("./nuspec/ResxConverter.Core.nuspec", nugetVersion);
   Package("./nuspec/ResxConverter.CLI.nuspec", nugetVersion);
@@ -96,7 +113,6 @@ Task ("NuGet")
 });
 
 Task("Default")
-	.IsDependentOn("NuGet") 
-	.Does(() => {});
+	.IsDependentOn("NuGet");
 
 RunTarget(target);
