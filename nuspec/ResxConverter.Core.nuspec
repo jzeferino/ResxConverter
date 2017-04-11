@@ -11,9 +11,6 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>ResxConverter.Core is a tool that helps convert Resx files to any format.</description>    
     <tags>resx, convert, xamarin, net</tags>
-    <dependencies>
-      <group targetFramework="net45" />
-    </dependencies>
   </metadata>
   <files>
     <file src="src/ResxConverter.Core/bin/Release/ResxConverter.Core.dll" target="lib/net45" />
