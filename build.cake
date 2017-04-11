@@ -37,6 +37,7 @@ Setup((context) =>
 {
 	Information("AppVeyor: {0}", isRunningOnAppVeyor);
 	Information("Configuration: {0}", configuration);
+    Information("Version: {0}", version);
 });
 
 Task("Clean")
