@@ -93,7 +93,5 @@ You can define a custom factory or reuse the built in `ResxConverterOutputFactor
 var converter = new ResxConverter(new ResxConverterOutputFactory((culture, outputFolder) => new CustomResxOutput(outputFolder, culture)));
 ```
 
-### Remarks
-
 ### License
 [MIT Licence](LICENSE) 
