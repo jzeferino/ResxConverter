@@ -97,9 +97,10 @@ Task("Run-Tests")
 
 Task ("NuGet")
 	.IsDependentOn ("Run-Tests")
+ 	.WithCriteria(isRunningOnAppVeyor)
 	.Does (() =>
 {
-  if(isRunningOnAppVeyor && AppVeyor.Environment.Repository.Branch == "develop")
+  if(AppVeyor.Environment.Repository.Branch == "develop")
   {
     version = version.Change(prerelease: "pre" + AppVeyor.Environment.Build.Number);
   }
