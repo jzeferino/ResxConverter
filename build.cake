@@ -33,7 +33,7 @@ Action<string, string> Package = (nuspec, nugetVersion) =>
       });	
 };
 
-Setup((context) =>
+Setup(context =>
 {
 	Information("AppVeyor: {0}", isRunningOnAppVeyor);
 	Information("Configuration: {0}", configuration);
@@ -102,10 +102,10 @@ Task ("NuGet")
   if(isRunningOnAppVeyor && AppVeyor.Environment.Repository.Branch == "develop")
   {
     version = version.Change(prerelease: "pre" + AppVeyor.Environment.Build.Number);
-    Information("Creating pre-release version of NuGet packages: {0}", version);
   }
 
   var nugetVersion = version.ToString();
+  AppVeyor.UpdateBuildVersion(nugetVersion);
 
   Package("./nuspec/Cake.ResxConverter.nuspec", nugetVersion);
   Package("./nuspec/ResxConverter.Core.nuspec", nugetVersion);
