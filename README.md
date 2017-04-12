@@ -23,7 +23,7 @@ Both the Cake and CLI packages include all the available converters, namely supp
 
 ### Usage from Cake
 ```c#
-#addin nuget:?package=Cake.ResxConverter&prerelease
+#addin nuget:?package=Cake.ResxConverter
 
 Task("Run")
   .Does(() =>
@@ -44,7 +44,7 @@ Task("Run")
 ResxConverter can be used from the command line via the `ResxConverter.CLI` package.
 
 ```
-Install-Package ResxConverter.CLI -Pre
+Install-Package ResxConverter.CLI
 ```
 
 On the command line, converters can be invoked as follows:
@@ -60,7 +60,7 @@ For complete usage information invoke the CLI without any arguments.
 ResxConverter core interfaces are defined in the `ResxConverter.Core` package.
 
 ```
-Install-Package ResxConverter.Core -Pre
+Install-Package ResxConverter.Core
 ```
 
 The library can be extended by defining new types of outputs. To that end, a new `IResxConverterOutput` should be defined.
