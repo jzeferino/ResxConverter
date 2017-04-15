@@ -108,7 +108,6 @@ Task ("NuGet")
   var nugetVersion = version.ToString();
   AppVeyor.UpdateBuildVersion(nugetVersion);
 
-  Package("./nuspec/Cake.ResxConverter.nuspec", nugetVersion);
   Package("./nuspec/ResxConverter.Core.nuspec", nugetVersion);
   Package("./nuspec/ResxConverter.CLI.nuspec", nugetVersion);
   Package("./nuspec/ResxConverter.Mobile.nuspec", nugetVersion);
