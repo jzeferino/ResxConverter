@@ -17,9 +17,9 @@ ResxConverter is shipped into three main packages.
 
 Both the Cake and CLI packages include all the available converters, namely support for conversion to **iOS and Android resource files**.
 
-| ResxConverter.Core | ResxConverter.CLI | Cake.ResxConverter |
-|    :---:     |     :---:      |     :---:     |
-| [![NuGet](https://img.shields.io/nuget/v/ResxConverter.Core.svg?label=NuGet)](https://www.nuget.org/packages/ResxConverter.Core/)   |[![NuGet](https://img.shields.io/nuget/v/ResxConverter.CLI.svg?label=NuGet)](https://www.nuget.org/packages/ResxConverter.CLI/)     | [![NuGet](https://img.shields.io/nuget/v/Cake.ResxConverter.svg?label=NuGet)](https://www.nuget.org/packages/Cake.ResxConverter/)    |
+| ResxConverter.Core | ResxConverter.CLI | Cake.ResxConverter | ResxConverter.Mobile |
+|    :---:     |     :---:      |     :---:     |     :---:     |
+| [![NuGet](https://img.shields.io/nuget/v/ResxConverter.Core.svg?label=NuGet)](https://www.nuget.org/packages/ResxConverter.Core/)   | [![NuGet](https://img.shields.io/nuget/v/ResxConverter.CLI.svg?label=NuGet)](https://www.nuget.org/packages/ResxConverter.CLI/)     | [![NuGet](https://img.shields.io/nuget/v/Cake.ResxConverter.svg?label=NuGet)](https://www.nuget.org/packages/Cake.ResxConverter/)    | [![NuGet](https://img.shields.io/nuget/v/ResxConverter.Mobile.svg?label=NuGet)](https://www.nuget.org/packages/ResxConverter.Mobile/)    |
 
 ### Usage from Cake
 ```c#
