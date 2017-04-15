@@ -9,7 +9,7 @@
     <licenseUrl>https://github.com/jzeferino/ResxConverter/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/jzeferino/ResxConverter</projectUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description>ResxConverter.Mobile is a tool that helps convert Resx files to any format.</description>    
+    <description>ResxConverter.Mobile is a tool that helps convert Resx files to android and ios.</description>    
     <tags>resx, convert, xamarin, net</tags>
   </metadata>
   <files>
