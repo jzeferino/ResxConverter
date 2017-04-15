@@ -12,32 +12,14 @@ ResxConverter is a tool that helps convert resx files to any format.
 
 ResxConverter is shipped into three main packages.
 * Core - includes all the resx parsing code and allows extending the conversion to any format.
-* Cake - allows its use in a [Cake](http://cakebuild.net/) script.
 * CLI - allows its use from the command-line.
+* Mobile - Android and iOS custom parsers.
 
 Both the Cake and CLI packages include all the available converters, namely support for conversion to **iOS and Android resource files**.
 
-| ResxConverter.Core | ResxConverter.CLI | Cake.ResxConverter | ResxConverter.Mobile |
+| ResxConverter.Core | ResxConverter.CLI | ResxConverter.Mobile |
 |    :---:     |     :---:      |     :---:     |     :---:     |
-| [![NuGet](https://img.shields.io/nuget/v/ResxConverter.Core.svg?label=NuGet)](https://www.nuget.org/packages/ResxConverter.Core/)   | [![NuGet](https://img.shields.io/nuget/v/ResxConverter.CLI.svg?label=NuGet)](https://www.nuget.org/packages/ResxConverter.CLI/)     | [![NuGet](https://img.shields.io/nuget/v/Cake.ResxConverter.svg?label=NuGet)](https://www.nuget.org/packages/Cake.ResxConverter/)    | [![NuGet](https://img.shields.io/nuget/v/ResxConverter.Mobile.svg?label=NuGet)](https://www.nuget.org/packages/ResxConverter.Mobile/)    |
-
-### Usage from Cake
-```c#
-#addin "Cake.ResxConverter"
-
-Task("Run")
-  .Does(() =>
-{
-  // The path for the folder with resx files.
-  var resxFolder = "test/ResxConverter.Mobile.Tests/Resources"; 
-  
-  // Convert the resx files to android into the specified folder.
-  ResxConverter.ConvertToAndroid(resxFolder, "artifacts/generated/android");
-  
-  // Convert the resx files to ios into the specified folder.
-  ResxConverter.ConvertToiOS(resxFolder, "artifacts/generated/ios");
-});
-```
+| [![NuGet](https://img.shields.io/nuget/v/ResxConverter.Core.svg?label=NuGet)](https://www.nuget.org/packages/ResxConverter.Core/)   | [![NuGet](https://img.shields.io/nuget/v/ResxConverter.CLI.svg?label=NuGet)](https://www.nuget.org/packages/ResxConverter.CLI/)     | [![NuGet](https://img.shields.io/nuget/v/ResxConverter.Mobile.svg?label=NuGet)](https://www.nuget.org/packages/ResxConverter.Mobile/)    |
 
 ### Usage from command-line
 
