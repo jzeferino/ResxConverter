@@ -111,6 +111,7 @@ Task ("NuGet")
   Package("./nuspec/Cake.ResxConverter.nuspec", nugetVersion);
   Package("./nuspec/ResxConverter.Core.nuspec", nugetVersion);
   Package("./nuspec/ResxConverter.CLI.nuspec", nugetVersion);
+  Package("./nuspec/ResxConverter.Mobile.nuspec", nugetVersion);
 
 });
 
