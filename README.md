@@ -15,7 +15,7 @@ ResxConverter is shipped into three main packages.
 * CLI - allows its use from the command-line.
 * Mobile - Android and iOS custom parsers.
 
-Both the Cake and CLI packages include all the available converters, namely support for conversion to **iOS and Android resource files**.
+Both the [Cake.ResxConverter](https://github.com/jzeferino/Cake.ResxConverter) and CLI packages include all the available converters, namely support for conversion to **iOS and Android resource files**.
 
 | ResxConverter.Core | ResxConverter.CLI | ResxConverter.Mobile |
 |    :---:     |     :---:      |     :---:     |
