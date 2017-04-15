@@ -23,7 +23,7 @@ Both the Cake and CLI packages include all the available converters, namely supp
 
 ### Usage from Cake
 ```c#
-#addin nuget:?package=Cake.ResxConverter
+#addin "Cake.ResxConverter"
 
 Task("Run")
   .Does(() =>
