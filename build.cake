@@ -17,7 +17,7 @@ var artifactsDirectory = new DirectoryPath("artifacts");
 var testsDllPath = string.Format("./test/**/bin/{0}/*.Tests.dll", configuration);
 
 // Versioning. Used for all the packages and assemblies for now.
-var version = CreateSemVer(1, 0, 0);
+var version = CreateSemVer(1, 0, 1);
 
 // Reusable Packaging
 Action<string, string> Package = (nuspec, nugetVersion) =>
