@@ -2,14 +2,27 @@
 
 namespace ResxConverter.Mobile
 {
-    internal static class StringExtensions
+    /// <summary>
+    /// Extensions for <see cref="string"/>.
+    /// </summary>
+    public static class StringExtensions
     {
+        private const string CamelCaseSeparatorRegexString = @"
+            # Not start
+            (?<!^)
+            # If previous is upper-case letter: match upper-case letter followed by lower-case letter (e.g. 'G' in HTMLGuide)
+            # Else (previous is lower-case): match upper-case letter
+            (?(?<=\p{Lu})\p{Lu}(?=\p{Ll})|\p{Lu})
+        ";
+
+        private static readonly Regex CamelCaseSeparatorRegex = new Regex(CamelCaseSeparatorRegexString, RegexOptions.IgnorePatternWhitespace | RegexOptions.Compiled);
+
         /// <summary>
         /// Convert camel-case to lower-case separated with underscore.
         /// </summary>
         /// <param name="value">Value.</param>
         /// <returns>Lower case underscore string.</returns>
-        public static string ToLowerUnderScoreFromCamelCase(this string value) => Regex.Replace(value, @"(\p{Ll})(\p{Lu})", "$1_$2").ToLower();
+        public static string ToLowerUnderScoreFromCamelCase(this string value) => CamelCaseSeparatorRegex.Replace(value, "_$0").ToLower();
 
         /// <summary>
         /// Escapes the " ' \ \n characteres.

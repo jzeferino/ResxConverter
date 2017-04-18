@@ -82,6 +82,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="StringExtensionsTests.cs" />
     <Compile Include="UsageSamples.cs" />
   </ItemGroup>
   <ItemGroup>
