@@ -106,7 +106,7 @@ Task ("NuGet")
   }
 
   var nugetVersion = version.ToString();
-  AppVeyor.UpdateBuildVersion(nugetVersion);
+  AppVeyor.UpdateBuildVersion(string.Format("{0} (build {1})", nugetVersion, AppVeyor.Environment.Build.Number));
 
   Package("./nuspec/ResxConverter.Core.nuspec", nugetVersion);
   Package("./nuspec/ResxConverter.CLI.nuspec", nugetVersion);
