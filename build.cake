@@ -100,13 +100,9 @@ Task ("NuGet")
  	.WithCriteria(isRunningOnAppVeyor)
 	.Does (() =>
 {
-  if(AppVeyor.Environment.Repository.Branch == "develop")
-  {
-    version = version.Change(prerelease: "pre" + AppVeyor.Environment.Build.Number);
-  }
+  AppVeyor.UpdateBuildVersion($"{version.ToString()}-{AppVeyor.Environment.Repository.Branch}-build{AppVeyor.Environment.Build.Number}");
 
-  var nugetVersion = version.ToString();
-  AppVeyor.UpdateBuildVersion(string.Format("{0} (build {1})", nugetVersion, AppVeyor.Environment.Build.Number));
+  var nugetVersion = AppVeyor.Environment.Repository.Branch == "master" ? version.ToString() : version.Change(prerelease: "pre" + AppVeyor.Environment.Build.Number).ToString();
 
   Package("./nuspec/ResxConverter.Core.nuspec", nugetVersion);
   Package("./nuspec/ResxConverter.CLI.nuspec", nugetVersion);
