@@ -69,7 +69,7 @@ public interface IResxConverterOutputFactory
 }
 ```
 
-You can define a custom factory or reuse the built in `ResxConverterOutputFactory` that accepts a lambda. Finally, you use the factory to create an instance of `ResxConverter`.
+You can define a custom factory or reuse the built in `ResxConverterOutputFactory` that accepts a lambda. Finally, use the factory to create an instance of `ResxConverter`.
 
 ```c#
 var converter = new ResxConverter(new ResxConverterOutputFactory((culture, outputFolder) => new CustomResxOutput(outputFolder, culture)));
