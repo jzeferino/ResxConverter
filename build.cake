@@ -1,4 +1,5 @@
 #addin Cake.SemVer
+#addin nuget:?package=semver&version=2.0.4
 
 #tool "xunit.runner.console&version=2.2.0"
 
@@ -45,7 +46,7 @@ Task("Clean")
 {	
   CleanDirectory(artifactsDirectory);
 
-  DotNetBuild(solutionFile, settings => settings
+  MSBuild(solutionFile, settings => settings
       .SetConfiguration(configuration)
       .WithTarget("Clean")
       .SetVerbosity(Verbosity.Minimal));
@@ -71,10 +72,10 @@ Task("Patch-AssemblyInfo")
 Task("Build")
 	.IsDependentOn("Clean")
 	.IsDependentOn("Restore")
-    .IsDependentOn("Patch-AssemblyInfo")
+  .IsDependentOn("Patch-AssemblyInfo")
 	.Does(() =>  
 {	
-  DotNetBuild(solutionFile, settings => settings
+  MSBuild(solutionFile, settings => settings
         .SetConfiguration(configuration)
         .WithTarget("Build")
         .SetVerbosity(Verbosity.Minimal));
