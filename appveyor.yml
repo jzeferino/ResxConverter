@@ -4,7 +4,7 @@ branches:
   - develop
   - master
 build_script:
-- ps: .\build.ps1
+- ps: .\build.ps1 -Verbosity diagnostic
 
 test: off
 
