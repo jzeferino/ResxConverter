@@ -3,4 +3,18 @@
     <TargetFrameworks>netstandard20</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>ResxConverter.Core</PackageId>
+    <Title>ResxConverter.Core</Title>
+    <Summary>ResxConverter.Core is a tool that helps convert Resx files to any format.</Summary>
+    <Description>ResxConverter.Core is a tool that helps convert Resx files to any format.</Description>
+    <PackageTags>resx, convert, xamarin, net</PackageTags>
+    <Authors>jzeferino, Luís Gonçalves</Authors>
+    <Owners>jzeferino, Luís Gonçalves</Owners>    
+    <PackageProjectUrl>https://github.com/jzeferino/ResxConverter</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/jzeferino/ResxConverter/blob/master/art/icon.png?raw=true</PackageIconUrl>
+    <PackageLicenseUrl>https://github.com/jzeferino/ResxConverter/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>    
+  </PropertyGroup> 
 </Project>
