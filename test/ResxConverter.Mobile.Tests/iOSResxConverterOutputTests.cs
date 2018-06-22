@@ -1,4 +1,4 @@
-﻿using Ploeh.AutoFixture;
+﻿using AutoFixture;
 using System;
 using System.IO;
 using Xunit;
@@ -83,7 +83,7 @@ namespace ResxConverter.Mobile.Tests
 
             var strings = File.ReadAllLines(filePath);
 
-            Assert.Equal(1, strings.Length);
+            Assert.Single(strings);
             var s = strings[0];
             Assert.Equal("\"str\" = \"\\\" text \\\\ text \\n\";", s);
         }

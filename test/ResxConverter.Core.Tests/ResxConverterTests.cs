@@ -1,6 +1,6 @@
 ﻿using System;
 using Moq;
-using Ploeh.AutoFixture;
+using AutoFixture;
 using Xunit;
 
 namespace ResxConverter.Core.Tests
