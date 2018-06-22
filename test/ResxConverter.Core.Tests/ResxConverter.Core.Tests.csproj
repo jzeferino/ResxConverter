@@ -24,8 +24,6 @@
       <DependentUpon>Empty1.resx</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <EmbeddedResource Update="Resources\Empty\Empty1.pt-PT.resx">
-    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Empty\Empty2.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Empty2.Designer.cs</LastGenOutput>
@@ -34,8 +32,6 @@
       <DependentUpon>Empty2.resx</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <EmbeddedResource Update="Resources\Empty\Empty2.pt-PT.resx">
-    </EmbeddedResource>
     <EmbeddedResource Update="Resources\SingleCulture\R1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>R1.Designer.cs</LastGenOutput>
