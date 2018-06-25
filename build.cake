@@ -19,20 +19,7 @@ var testsDllPath = string.Format("./test/**/bin/{0}/*.Tests.dll", configuration)
 
 // Versioning. Used for all the packages and assemblies for now.
 var version = CreateSemVer(1, 0, 1);
-
-// Reusable Packaging
-Action<string, string> Package = (nuspec, nugetVersion) =>
-{
-    NuGetPack (nuspec, 
-    new NuGetPackSettings 
-      { 
-        Version = nugetVersion,
-        Verbosity = NuGetVerbosity.Normal,
-        OutputDirectory = artifactsDirectory,
-        BasePath = "./",
-        ArgumentCustomization = args => args.Append("-NoDefaultExcludes")		
-      });	
-};
+var nugetVersion = version.ToString();
 
 Setup(context =>
 {
@@ -84,28 +71,32 @@ Task("Run-Tests")
   }
 });
 
+Task("Update-AppVeyor-Version")
+  .WithCriteria(isRunningOnAppVeyor)
+  .Does(() =>
+{
+  AppVeyor.UpdateBuildVersion($"{version.ToString()}-{AppVeyor.Environment.Repository.Branch}-build{AppVeyor.Environment.Build.Number}");
+  nugetVersion = AppVeyor.Environment.Repository.Branch == "master" ? version.ToString() : version.Change(prerelease: "pre" + AppVeyor.Environment.Build.Number).ToString();
+});
+
 Task ("NuGet")
+	.IsDependentOn ("Update-AppVeyor-Version")
 	.IsDependentOn ("Run-Tests")
 	.Does (() =>
 {
-  //AppVeyor.UpdateBuildVersion(string.Format("{0}-{1}-build{2}", version.ToString(), AppVeyor.Environment.Repository.Branch, AppVeyor.Environment.Build.Number));
-
-  var nugetVersion = "2.0.0";//AppVeyor.Environment.Repository.Branch == "master" ? version.ToString() : version.Change(prerelease: "pre" + AppVeyor.Environment.Build.Number).ToString();
-
   var settings = new DotNetCorePackSettings
   {
       OutputDirectory = artifactsDirectory,
       WorkingDirectory = "./",
       NoBuild = true,
       NoRestore = true,
-      Configuration = configuration
+      Configuration = configuration,
+      MSBuildSettings = new DotNetCoreMSBuildSettings().SetVersion(nugetVersion)
   };
-
-  settings.MSBuildSettings = new DotNetCoreMSBuildSettings().SetVersion(nugetVersion);
+ 
   DotNetCorePack("src/ResxConverter.Core/ResxConverter.Core.csproj", settings);
   DotNetCorePack("src/ResxConverter.Mobile/ResxConverter.Mobile.csproj", settings);
   DotNetCorePack("src/ResxConverter.CLI/ResxConverter.CLI.csproj", settings);
-
 });
 
 Task("Default")
