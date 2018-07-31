@@ -1,4 +1,4 @@
-﻿using Ploeh.AutoFixture;
+﻿using AutoFixture;
 using System;
 using System.IO;
 using System.Linq;
@@ -97,7 +97,7 @@ namespace ResxConverter.Mobile.Tests
             var xDoc = XDocument.Load(filePath);
             var strings = xDoc.Descendants("string").ToList();
 
-            Assert.Equal(1, strings.Count);
+            Assert.Single(strings);
             Assert.Equal("\\\" text \\\\ text \\' text \\n", strings[0].Value);
         }
     }

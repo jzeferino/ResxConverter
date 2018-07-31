@@ -1,4 +1,4 @@
-#addin Cake.SemVer
+#addin nuget:?package=Cake.SemVer&version=3.0.0&loaddependencies=true
 
 #tool "xunit.runner.console&version=2.2.0"
 
@@ -10,28 +10,15 @@ var target = Argument("target", "Default");
 var configuration = "Release";
 
 // Define directories.
-var solutionFile = new FilePath("ResxConverter.sln");
-var artifactsDirectory = new DirectoryPath("artifacts");
+var solutionFile = File("ResxConverter.sln");
+var artifactsDirectory = Directory("artifacts");
 
 // Tests.
 var testsDllPath = string.Format("./test/**/bin/{0}/*.Tests.dll", configuration);
 
 // Versioning. Used for all the packages and assemblies for now.
 var version = CreateSemVer(1, 0, 1);
-
-// Reusable Packaging
-Action<string, string> Package = (nuspec, nugetVersion) =>
-{
-    NuGetPack (nuspec, 
-    new NuGetPackSettings 
-      { 
-        Version = nugetVersion,
-        Verbosity = NuGetVerbosity.Normal,
-        OutputDirectory = artifactsDirectory,
-        BasePath = "./",
-        ArgumentCustomization = args => args.Append("-NoDefaultExcludes")		
-      });	
-};
+var nugetVersion = version.Change(prerelease: "local" + DateTime.Now.Ticks);
 
 Setup(context =>
 {
@@ -45,7 +32,7 @@ Task("Clean")
 {	
   CleanDirectory(artifactsDirectory);
 
-  DotNetBuild(solutionFile, settings => settings
+  MSBuild(solutionFile, settings => settings
       .SetConfiguration(configuration)
       .WithTarget("Clean")
       .SetVerbosity(Verbosity.Minimal));
@@ -57,27 +44,20 @@ Task("Restore")
   NuGetRestore(solutionFile);
 });
 
-Task("Patch-AssemblyInfo")
-	.WithCriteria(isRunningOnAppVeyor)
-	.Does(() =>
-{
-  CreateAssemblyInfo("./CommonAssemblyInfo.cs", new AssemblyInfoSettings
-  {
-    // Keep only the major and minor for assembly versions
-    Version = version.Change(patch: 0).ToString()
-  });
-});
-
 Task("Build")
 	.IsDependentOn("Clean")
 	.IsDependentOn("Restore")
-    .IsDependentOn("Patch-AssemblyInfo")
-	.Does(() =>  
-{	
-  DotNetBuild(solutionFile, settings => settings
-        .SetConfiguration(configuration)
-        .WithTarget("Build")
-        .SetVerbosity(Verbosity.Minimal));
+	.Does(() =>
+{
+  var setings = new DotNetCoreBuildSettings
+  {
+    Configuration = configuration,
+    NoRestore = true,
+    Verbosity = DotNetCoreVerbosity.Minimal,
+    MSBuildSettings = new DotNetCoreMSBuildSettings().SetVersion(version.ToString())
+  };
+
+  DotNetCoreBuild(solutionFile, setings);
 });
 
 Task("Run-Tests")
@@ -95,18 +75,32 @@ Task("Run-Tests")
   }
 });
 
+Task("Update-AppVeyor-Version")
+  .WithCriteria(isRunningOnAppVeyor)
+  .Does(() =>
+{
+  AppVeyor.UpdateBuildVersion($"{version}-{AppVeyor.Environment.Repository.Branch}-build{AppVeyor.Environment.Build.Number}");
+  nugetVersion = AppVeyor.Environment.Repository.Branch == "master" ? version : version.Change(prerelease: "pre" + AppVeyor.Environment.Build.Number);
+});
+
 Task ("NuGet")
+	.IsDependentOn ("Update-AppVeyor-Version")
 	.IsDependentOn ("Run-Tests")
- 	.WithCriteria(isRunningOnAppVeyor)
 	.Does (() =>
 {
-  AppVeyor.UpdateBuildVersion(string.Format("{0}-{1}-build{2}", version.ToString(), AppVeyor.Environment.Repository.Branch, AppVeyor.Environment.Build.Number));
-
-  var nugetVersion = AppVeyor.Environment.Repository.Branch == "master" ? version.ToString() : version.Change(prerelease: "pre" + AppVeyor.Environment.Build.Number).ToString();
-
-  Package("./nuspec/ResxConverter.Core.nuspec", nugetVersion);
-  Package("./nuspec/ResxConverter.CLI.nuspec", nugetVersion);
-  Package("./nuspec/ResxConverter.Mobile.nuspec", nugetVersion);
+  var settings = new DotNetCorePackSettings
+  {
+      OutputDirectory = artifactsDirectory,
+      WorkingDirectory = "./",
+      NoBuild = true,
+      NoRestore = true,
+      Configuration = configuration,
+      MSBuildSettings = new DotNetCoreMSBuildSettings().SetVersion(nugetVersion.ToString())
+  };
+ 
+  DotNetCorePack("src/ResxConverter.Core/ResxConverter.Core.csproj", settings);
+  DotNetCorePack("src/ResxConverter.Mobile/ResxConverter.Mobile.csproj", settings);
+  DotNetCorePack("src/ResxConverter.CLI/ResxConverter.CLI.csproj", settings);
 });
 
 Task("Default")

@@ -20,10 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "items", "items", "{BECA2D3F
 	ProjectSection(SolutionItems) = preProject
 		appveyor.yml = appveyor.yml
 		build.cake = build.cake
-		CommonAssemblyInfo.cs = CommonAssemblyInfo.cs
 		README.md = README.md
-		nuspec\ResxConverter.CLI.nuspec = nuspec\ResxConverter.CLI.nuspec
-		nuspec\ResxConverter.Core.nuspec = nuspec\ResxConverter.Core.nuspec
 	EndProjectSection
 EndProject
 Global

@@ -1,51 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+   <PropertyGroup>
+    <TargetFrameworks>netstandard20</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9BC227F4-F760-4C64-8C7D-6CEA4982919F}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>ResxConverter.Core</RootNamespace>
-    <AssemblyName>ResxConverter.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>
-    </DocumentationFile>
-    <ExternalConsole>true</ExternalConsole>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\ResxConverter.Core.xml</DocumentationFile>
-    <ExternalConsole>true</ExternalConsole>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ResxConverterOutputFactory.cs" />
-    <Compile Include="IResxConverterOutputFactory.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="..\..\CommonAssemblyInfo.cs">
-      <Link>Properties\CommonAssemblyInfo.cs</Link>
-    </Compile>
-    <Compile Include="ResxConverter.cs" />
-    <Compile Include="IResxConverterOutput.cs" />
-    <Compile Include="ResxString.cs" />
-    <Compile Include="StringExtensions.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+    <PackageId>ResxConverter.Core</PackageId>
+    <Title>ResxConverter.Core</Title>
+    <Summary>ResxConverter.Core is a tool that helps convert Resx files to any format.</Summary>
+    <Description>ResxConverter.Core is a tool that helps convert Resx files to any format.</Description>
+    <PackageTags>resx, convert, xamarin, net</PackageTags>
+    <Authors>jzeferino, Luís Gonçalves</Authors>
+    <Owners>jzeferino, Luís Gonçalves</Owners>    
+    <PackageProjectUrl>https://github.com/jzeferino/ResxConverter</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/jzeferino/ResxConverter/blob/master/art/icon.png?raw=true</PackageIconUrl>
+    <PackageLicenseUrl>https://github.com/jzeferino/ResxConverter/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>    
+  </PropertyGroup> 
 </Project>

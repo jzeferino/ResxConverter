@@ -1,67 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6969AA12-7406-4BAB-9908-B8FDABD852F1}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ResxConverter.CLI</RootNamespace>
-    <AssemblyName>ResxConverter.CLI</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="..\..\CommonAssemblyInfo.cs">
-      <Link>Properties\CommonAssemblyInfo.cs</Link>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ResxConverter.Core\ResxConverter.Core.csproj">
-      <Project>{9BC227F4-F760-4C64-8C7D-6CEA4982919F}</Project>
-      <Name>ResxConverter.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ResxConverter.Mobile\ResxConverter.Mobile.csproj">
-      <Project>{cd45fc8c-9db7-4981-a6b8-74d8465171db}</Project>
-      <Name>ResxConverter.Mobile</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
+ <PropertyGroup>
+    <PackageId>ResxConverter.CLI</PackageId>
+    <Title>ResxConverter.CLI</Title>
+    <Summary>ResxConverter.CLI is a tool that helps convert Resx files to any format.</Summary>
+    <Description>ResxConverter.CLI is a tool that helps convert Resx files to any format.</Description>
+    <PackageTags>resx, convert, xamarin, net, cli</PackageTags>
+    <Authors>jzeferino, Luís Gonçalves</Authors>
+    <Owners>jzeferino, Luís Gonçalves</Owners>    
+    <PackageProjectUrl>https://github.com/jzeferino/ResxConverter</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/jzeferino/ResxConverter/blob/master/art/icon.png?raw=true</PackageIconUrl>
+    <PackageLicenseUrl>https://github.com/jzeferino/ResxConverter/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>    
+</PropertyGroup> 
+
+ <ItemGroup>
+   <ProjectReference Include="..\ResxConverter.Core\ResxConverter.Core.csproj" />
+   <ProjectReference Include="..\ResxConverter.Mobile\ResxConverter.Mobile.csproj" />
+ </ItemGroup>
 </Project>
