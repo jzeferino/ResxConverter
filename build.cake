@@ -1,5 +1,4 @@
-#addin Cake.SemVer
-#addin nuget:?package=semver&version=2.0.4
+#addin nuget:?package=Cake.SemVer&version=3.0.0&loaddependencies=true
 
 #tool "xunit.runner.console&version=2.2.0"
 
@@ -11,15 +10,15 @@ var target = Argument("target", "Default");
 var configuration = "Release";
 
 // Define directories.
-var solutionFile = new FilePath("ResxConverter.sln");
-var artifactsDirectory = new DirectoryPath("artifacts");
+var solutionFile = File("ResxConverter.sln");
+var artifactsDirectory = Directory("artifacts");
 
 // Tests.
 var testsDllPath = string.Format("./test/**/bin/{0}/*.Tests.dll", configuration);
 
 // Versioning. Used for all the packages and assemblies for now.
 var version = CreateSemVer(1, 0, 1);
-var nugetVersion = version.ToString();
+var nugetVersion = version.Change(prerelease: "local" + DateTime.Now.Ticks);
 
 Setup(context =>
 {
@@ -48,12 +47,17 @@ Task("Restore")
 Task("Build")
 	.IsDependentOn("Clean")
 	.IsDependentOn("Restore")
-	.Does(() =>  
-{	
-  MSBuild(solutionFile, settings => settings
-        .SetConfiguration(configuration)
-        .WithTarget("Build")
-        .SetVerbosity(Verbosity.Minimal));
+	.Does(() =>
+{
+  var setings = new DotNetCoreBuildSettings
+  {
+    Configuration = configuration,
+    NoRestore = true,
+    Verbosity = DotNetCoreVerbosity.Minimal,
+    MSBuildSettings = new DotNetCoreMSBuildSettings().SetVersion(version.ToString())
+  };
+
+  DotNetCoreBuild(solutionFile, setings);
 });
 
 Task("Run-Tests")
@@ -75,8 +79,8 @@ Task("Update-AppVeyor-Version")
   .WithCriteria(isRunningOnAppVeyor)
   .Does(() =>
 {
-  AppVeyor.UpdateBuildVersion($"{version.ToString()}-{AppVeyor.Environment.Repository.Branch}-build{AppVeyor.Environment.Build.Number}");
-  nugetVersion = AppVeyor.Environment.Repository.Branch == "master" ? version.ToString() : version.Change(prerelease: "pre" + AppVeyor.Environment.Build.Number).ToString();
+  AppVeyor.UpdateBuildVersion($"{version}-{AppVeyor.Environment.Repository.Branch}-build{AppVeyor.Environment.Build.Number}");
+  nugetVersion = AppVeyor.Environment.Repository.Branch == "master" ? version : version.Change(prerelease: "pre" + AppVeyor.Environment.Build.Number);
 });
 
 Task ("NuGet")
@@ -91,7 +95,7 @@ Task ("NuGet")
       NoBuild = true,
       NoRestore = true,
       Configuration = configuration,
-      MSBuildSettings = new DotNetCoreMSBuildSettings().SetVersion(nugetVersion)
+      MSBuildSettings = new DotNetCoreMSBuildSettings().SetVersion(nugetVersion.ToString())
   };
  
   DotNetCorePack("src/ResxConverter.Core/ResxConverter.Core.csproj", settings);
